@@ -12,10 +12,13 @@
     "apollo-boost": "^0.4.9",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
