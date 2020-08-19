@@ -2,6 +2,8 @@
   "name": "honey-do-list",
   "version": "0.1.0",
   "private": true,
+  "description": "House chores get done with this app!",
+  "main": "server/server.js",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -12,17 +14,31 @@
     "graphql-tag": "^2.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "heroku-postbuild": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deannapi/honey-do-list.git"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "author": "DeAnna Martinez, Christopher Short, Kiran Riaz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deannapi/honey-do-list/issues"
+  },
+  "homepage": "https://github.com/deannapi/honey-do-list#readme",
   "browserslist": {
     "production": [
       ">0.2%",

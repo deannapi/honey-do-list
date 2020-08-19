@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Nav(propr) {
+export default function Nav(props) {
     const {
 
     } = props;
