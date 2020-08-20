@@ -18,19 +18,32 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true    
     },
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        match: [/.+@.+\..+/, 'Must match an email address!']
     },
     password: {
         type: String,
         required: true,
         minlength: 6
     },
-    orders: [Order.Schema]
+    family: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 });
 
 // set up pre-save middleware to create password
