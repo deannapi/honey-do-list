@@ -1,18 +1,16 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ApolloClient } from "apollo-boost";
+import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { Provider } from 'react-redux';
-import store from './utils/store';
+// import { Provider } from "react-redux";
 
 import Home from "./pages/Home";
-import Header from "./pages/Header";
-import Footer from "./pages/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Chores from "./pages/Chores";
-import Nav from "./pages/Header";
-import Signup from './pages/Signup';
-import Login from './pages/Login';
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -30,15 +28,19 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
-          <Provider store={store}>
-            <Nav />
+        <div className="">
+          {/* <Provider> */}
+          <Header />
+          <div className="">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/chores" component={Chores} />
             </Switch>
-          </Provider>
+          </div>
+          <Footer />
+          {/* </Provider> */}
         </div>
       </Router>
     </ApolloProvider>

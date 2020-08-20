@@ -69,7 +69,7 @@ function Signup(props) {
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
           <input
-            placeholder="******"
+            placeholder="must be at least 6 characters"
             name="password"
             type="password"
             id="pwd"
