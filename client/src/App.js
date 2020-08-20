@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloClient } from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Provider } from 'react-redux';
+import store from './utils/store';
 
 import Home from "./pages/Home";
 import Header from "./pages/Header";
