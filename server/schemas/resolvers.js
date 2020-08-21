@@ -79,6 +79,10 @@ const resolvers = {
                 return updatedComment;
             }
             throw new AuthenticationError('You are not logged in.');
+        },
+
+        createGroup: async (parent, args, context) => {
+            console.log("need to add function still");
         }
     }
 };

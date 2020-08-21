@@ -34,6 +34,13 @@ const typeDefs = gql`
     email: String
     tasks: [Task]
     comments: [Comment]
+    group: [Group]
+  }
+
+  type Group {
+      id: ID!
+      groupName: String!
+      users: [User]
   }
 
   type Task {

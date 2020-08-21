@@ -18,6 +18,7 @@ export default function Header() {
                     {Auth.loggedIn() ? (
                         <>
                             <a href="/" onClick={logout}>Logout</a>
+                            <a href="/mygroup">My Group</a>
                         </>
                     ) : (
                         <>

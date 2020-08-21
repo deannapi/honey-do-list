@@ -9,7 +9,7 @@ export default function assignGroup(props) {
     groupName: "",
     groupPassword: "",
   });
-  const [createGroup, { error }] = useMutation(CREATE_GROUP);
+  const [createGroup] = useMutation(CREATE_GROUP);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
