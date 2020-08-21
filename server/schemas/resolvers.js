@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Task, Comment } = require('../models');
+const { User, Comment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 // NEED TO GET STRIPE NUMBER STILL
@@ -65,6 +65,18 @@ const resolvers = {
                     { new: true }
                 );
                 return comment;
+            }
+            throw new AuthenticationError('You are not logged in.');
+        },
+
+        addReaction: async (parent, {commentId, reactionBody }, context) => {
+            if (context.user) {
+                const updatedComment = await Comment.findByIdAndUpdate(
+                { _id: commentId },
+                { $push: { reactions: { reactionBody, username: context.user.username}}},
+                { new: true, }
+                );
+                return updatedComment;
             }
             throw new AuthenticationError('You are not logged in.');
         }
