@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+<<<<<<< HEAD
   "proxy": "http://localhost:3001/",
+=======
+>>>>>>> 62bad4eb20a395e8cdd7757b3515a67b6ba927dd
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
