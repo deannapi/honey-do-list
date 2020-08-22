@@ -1,38 +1,39 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
-function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+export default function Signup(props) {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [addUser, { error }] = useMutation(ADD_USER);
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
-        email: formState.email, password: formState.password,
-        firstName: formState.firstName, lastName: formState.lastName
-      }
+        email: formState.email,
+        password: formState.password,
+        username: formState.username,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+      },
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
-      [name]: value
+      [name]: value,
     });
   };
 
   return (
     <div className="container my-1">
-      <Link to="/login">
-        ← Go to Login
-      </Link>
+      <Link to="/login">← Go to Login</Link>
 
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
@@ -44,6 +45,7 @@ function Signup(props) {
             type="firstName"
             id="firstName"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -54,6 +56,18 @@ function Signup(props) {
             type="lastName"
             id="lastName"
             onChange={handleChange}
+            autoComplete="on"
+          />
+        </div>
+        <div className="">
+          <label htmlFor="username">Username:</label>
+          <input
+            placeholder="username"
+            name="username"
+            type="text"
+            id="username"
+            onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -64,6 +78,7 @@ function Signup(props) {
             type="email"
             id="email"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -74,17 +89,14 @@ function Signup(props) {
             type="password"
             id="pwd"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row flex-end">
-          <button type="submit">
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </div>
       </form>
+      {error && <div>Sign up failed.</div>}
     </div>
   );
-
 }
-
-export default Signup;

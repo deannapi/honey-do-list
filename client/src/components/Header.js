@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import { Container, Menu, Button, Divider, Grid, Header, Icon, Image, List, Segment, Sidebar, Visibility, Sticky } from "semantic-ui-react";
+import { Container, Menu, Button, Grid, Header, Image, Segment, Sticky } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 
@@ -31,7 +31,7 @@ const HomepageHeading = ({ mobile }) => (
     <Grid columns={2}>
       <Grid.Row>
         <Grid.Column>
-        <Link to='/pages/login'>
+        <Link to='/login'>
         <Button.Group widths='2'>
           <Button color='teal' size='huge'
             style={{

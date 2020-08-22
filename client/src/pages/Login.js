@@ -43,6 +43,7 @@ function Login(props) {
             type="email"
             id="email"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -53,6 +54,7 @@ function Login(props) {
             type="password"
             id="pwd"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         {
