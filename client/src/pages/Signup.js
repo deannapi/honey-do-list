@@ -14,6 +14,7 @@ export default function Signup(props) {
       variables: {
         email: formState.email,
         password: formState.password,
+        username: formState.username,
         firstName: formState.firstName,
         lastName: formState.lastName,
       },
@@ -44,6 +45,7 @@ export default function Signup(props) {
             type="firstName"
             id="firstName"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -54,6 +56,7 @@ export default function Signup(props) {
             type="lastName"
             id="lastName"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="">
@@ -64,6 +67,7 @@ export default function Signup(props) {
             type="text"
             id="username"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -74,6 +78,7 @@ export default function Signup(props) {
             type="email"
             id="email"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -84,6 +89,7 @@ export default function Signup(props) {
             type="password"
             id="pwd"
             onChange={handleChange}
+            autoComplete="on"
           />
         </div>
         <div className="flex-row flex-end">
@@ -93,4 +99,4 @@ export default function Signup(props) {
       {error && <div>Sign up failed.</div>}
     </div>
   );
-};
+}

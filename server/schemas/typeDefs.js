@@ -19,6 +19,8 @@ const typeDefs = gql`
     ): Auth
     login(email: String!, password: String!): Auth
     addComment(commentBody: String!): Comment
+    addReaction(commentId: ID!, reactionBody: String!): Comment
+    createGroup(groupId: ID!, groupName: String!): Group
   }
 
   type Auth {

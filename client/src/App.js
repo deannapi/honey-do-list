@@ -11,8 +11,8 @@ import Footer from "./components/Footer";
 import Chores from "./pages/Chores";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import JoinGroup from './pages/JoinGroup';
-import MyGroup from './pages/MyGroup';
+import JoinGroup from "./pages/JoinGroup";
+import MyGroup from "./pages/MyGroup";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -26,7 +26,7 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
-function App() {
+export default function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -38,9 +38,9 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/chores" page={Chores} />
-              <Route exact path="/joingroup" />
-              <Route exact path="/mygroup" />
+              <Route exact path="/chores" component={Chores} />
+              <Route exact path="/joingroup" component={JoinGroup} />
+              <Route exact path="/mygroup" component={MyGroup} />
             </Switch>
           </div>
           <Footer />
@@ -50,5 +50,3 @@ function App() {
     </ApolloProvider>
   );
 }
-
-export default App;
