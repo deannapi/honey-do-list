@@ -8,6 +8,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Homepage from './components/Homepage';
 import Chores from "./pages/Chores";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -30,9 +31,10 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="">
+        {/* <div className=""> */}
           {/* <Provider> */}
           <Header />
+          <Homepage />
           <div className="">
             <Switch>
               <Route exact path="/" component={Home} />
@@ -45,7 +47,7 @@ export default function App() {
           </div>
           <Footer />
           {/* </Provider> */}
-        </div>
+        {/* </div> */}
       </Router>
     </ApolloProvider>
   );

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
+import 'semantic-ui-css/semantic.min.css';
+import { Form, Input, Button, Container } from 'semantic-ui-react'
+
 
 export default function Signup(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -32,71 +35,59 @@ export default function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+    <Container text textAlign='center'>
+      {/* <Link to="/login">← Go to Login</Link> */}
 
       <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
+      <Form onSubmit={handleFormSubmit}>
+          <Form.Field
+            placeholder="First Name"
+            control={Input}
+            label="First Name"
+            id="form-input-control-first-name"
             onChange={handleChange}
             autoComplete="on"
           />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
+          <Form.Field
+            placeholder="Last Name"
+            control={Input}
+            label="Last Name"
+            id="form-input-control-last-name"
             onChange={handleChange}
             autoComplete="on"
           />
-        </div>
-        <div className="">
-          <label htmlFor="username">Username:</label>
-          <input
-            placeholder="username"
-            name="username"
-            type="text"
-            id="username"
+        <Form.Field
+            placeholder="Username"
+            label="Username"
+            control={Input}
+            id="Username"
             onChange={handleChange}
             autoComplete="on"
           />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
+        <Form.Field
             placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
+            control={Input}
+            label="Email"
+            id="form-input-control-error-email"
             onChange={handleChange}
             autoComplete="on"
           />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
+        <Form.Field
             placeholder="must be at least 6 characters"
-            name="password"
-            type="password"
-            id="pwd"
+            label="Password"
+            control={Input}
+            id="Password"
             onChange={handleChange}
             autoComplete="on"
           />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+          <Button color='teal' size='big'
+            style={{
+            marginBottom: '10em'
+            }}>
+            Signup
+          </Button>
+      </Form>
       {error && <div>Sign up failed.</div>}
-    </div>
+    </Container>
   );
 }
