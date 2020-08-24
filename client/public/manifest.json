@@ -1,12 +1,6 @@
 {
-<<<<<<< HEAD
   "short_name": "React App",
   "name": "Create React App Sample",
-=======
-  "short_name": "To-Do",
-  "name": "Honey Do List",
-  "description": "An app that allows you to assign and track chores along with building a shopping list. ",
->>>>>>> 62bad4eb20a395e8cdd7757b3515a67b6ba927dd
   "icons": [
     {
       "src": "favicon.ico",

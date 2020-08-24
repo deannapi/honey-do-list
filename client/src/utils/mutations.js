@@ -69,3 +69,11 @@ export const ADD_REACTION = gql`
     }
   }
 `;
+
+export const ADD_CHORE = gql`
+  mutation addChore($choreId: ID!, $choreBody: String!) {
+    addChore(choreId: $choreId, choreBody: $choreBody) {
+      _id
+    }
+  }
+`;

@@ -46,12 +46,12 @@ function Login(props) {
             autoComplete="on"
           />
         <Form.Field
-            placeholder="******"
             label="Password"
             control={Input}
             id="Password"
             onChange={handleChange}
             autoComplete="on"
+            type="password"
           />
         {
           error ? <div>
