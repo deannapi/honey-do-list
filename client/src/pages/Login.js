@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/react-hooks';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
+import 'semantic-ui-css/semantic.min.css';
+import { Form, Input, Button, Container } from 'semantic-ui-react'
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' })
@@ -28,45 +30,42 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup">
+    <Container text textAlign='center'>
+      {/* <Link to="/signup">
         ← Go to Signup
-      </Link>
+      </Link> */}
 
       <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <input
+      <Form onSubmit={handleFormSubmit}>
+          <Form.Field
             placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
+            control={Input}
+            label="Email"
+            id="form-input-control-error-email"
             onChange={handleChange}
+            autoComplete="on"
           />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
+        <Form.Field
+            label="Password"
+            control={Input}
+            id="Password"
+            onChange={handleChange}
+            autoComplete="on"
             type="password"
-            id="pwd"
-            onChange={handleChange}
           />
-        </div>
         {
           error ? <div>
             <p className="error-text" >The provided credentials are incorrect</p>
           </div> : null
         }
-        <div className="flex-row flex-end">
-          <button type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+          <Button color='teal' size='big'
+            style={{
+            marginBottom: '10em'
+            }}>
+            Login
+          </Button>
+      </Form>
+    </Container>
   );
 }
 

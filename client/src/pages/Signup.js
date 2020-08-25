@@ -1,90 +1,103 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useMutation } from '@apollo/react-hooks';
+// import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
+import "semantic-ui-css/semantic.min.css";
+import { Form, Input, Button, Container } from "semantic-ui-react";
 
-function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+export default function Signup(props) {
+  const [formState, setFormState] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    password: "",
+  });
+  const [addUser, { error }] = useMutation(ADD_USER);
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
-        email: formState.email, password: formState.password,
-        firstName: formState.firstName, lastName: formState.lastName
-      }
+        email: formState.email,
+        password: formState.password,
+        username: formState.username,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+      },
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
-      [name]: value
+      [name]: value,
     });
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">
-        ← Go to Login
-      </Link>
+    <Container text textAlign="center">
+      {/* <Link to="/login">← Go to Login</Link> */}
 
       <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="must be at least 6 characters"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+      <Form onSubmit={handleFormSubmit}>
+        <Form.Field
+          placeholder="First Name"
+          control={Input}
+          label="First Name"
+          id="form-input-control-first-name"
+          onChange={handleChange}
+          autoComplete="on"
+        />
+        <Form.Field
+          placeholder="Last Name"
+          control={Input}
+          label="Last Name"
+          id="form-input-control-last-name"
+          onChange={handleChange}
+          autoComplete="on"
+        />
+        <Form.Field
+          placeholder="Username"
+          label="Username"
+          control={Input}
+          id="Username"
+          onChange={handleChange}
+          autoComplete="on"
+        />
+        <Form.Field
+          placeholder="youremail@test.com"
+          control={Input}
+          label="Email"
+          id="form-input-control-error-email"
+          onChange={handleChange}
+          autoComplete="on"
+        />
+        <Form.Field
+          placeholder="must be at least 6 characters"
+          label="Password"
+          control={Input}
+          id="Password"
+          onChange={handleChange}
+          autoComplete="on"
+          type="password"
+        />
+        <Button
+          type="submit"          
+          color="teal"
+          size="big"
+          style={{
+            marginBottom: "10em",
+          }}
+        >
+          Signup
+        </Button>
+      </Form>
+      {error && <div>Sign up failed.</div>}
+    </Container>
   );
-
 }
-
-export default Signup;

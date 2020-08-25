@@ -7,6 +7,15 @@ const stripe = require('stripe')('');
 
 const resolvers = {
     Query: {
+        me: async (parent, args, context) => {
+            if (context.user) {
+                const userData = await User.findOne({ _id: context.user._id })
+                    .select('-__v -password')
+                    .populate('comments')
+                return userData;
+            }
+            throw new AuthenticationError('You are not logged in.');
+        },
         user: async (parent, args, context) => {
             if (context.user) {
                 const user = await User.findById(_id).populate({
@@ -74,11 +83,15 @@ const resolvers = {
                 const updatedComment = await Comment.findByIdAndUpdate(
                 { _id: commentId },
                 { $push: { reactions: { reactionBody, username: context.user.username}}},
-                { new: true, }
+                { new: true, runValidators: true }
                 );
                 return updatedComment;
             }
             throw new AuthenticationError('You are not logged in.');
+        },
+
+        createGroup: async (parent, args, context) => {
+            console.log("need to add function still");
         }
     }
 };

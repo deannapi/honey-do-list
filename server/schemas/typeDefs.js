@@ -8,7 +8,6 @@ const typeDefs = gql`
     comments(username: String): [Comment]
     comment(_id: ID!): Comment
   }
-
   type Mutation {
     addUser(
       firstName: String!
@@ -19,14 +18,13 @@ const typeDefs = gql`
     ): Auth
     login(email: String!, password: String!): Auth
     addComment(commentBody: String!): Comment
-    addReaction(reactionBody: String!): Reaction
+    addReaction(commentId: ID!, reactionBody: String!): Comment
+    createGroup(groupId: ID!, groupName: String!): Group
   }
-
   type Auth {
     token: ID!
     user: User
   }
-
   type User {
     _id: ID
     firstName: String
@@ -35,14 +33,18 @@ const typeDefs = gql`
     email: String
     tasks: [Task]
     comments: [Comment]
+    group: [Group]
   }
-
+  type Group {
+      id: ID!
+      groupName: String!
+      users: [User]
+  }
   type Task {
     _id: ID
     taskName: String
     user: [User]
   }
-
   type Comment {
     _id: ID
     commentBody: String
@@ -50,7 +52,6 @@ const typeDefs = gql`
     createdAt: String
     username: String
   }
-
   type Reaction {
     _id: ID
     reactionBody: String

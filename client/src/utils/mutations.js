@@ -55,3 +55,25 @@ export const JOIN_GROUP = gql`
     }
   }
 `;
+
+export const ADD_REACTION = gql`
+  mutation addReaction($commentId: ID!, $commentBody: String!) {
+    addReaction(commentId: $commentId, commentBody: $commentBody) {
+      _id
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_CHORE = gql`
+  mutation addChore($choreId: ID!, $choreBody: String!) {
+    addChore(choreId: $choreId, choreBody: $choreBody) {
+      _id
+    }
+  }
+`;
