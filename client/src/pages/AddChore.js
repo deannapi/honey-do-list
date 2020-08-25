@@ -30,7 +30,7 @@ export default function AddChore(props) {
         <Form.Field control={Input} label="Chore" id="chore-input" />
         <Button type="submit" color="teal" size="medium">Add Chore</Button>
       </Form>
-      {error && <div>Adding Chore Failed.</div>}
+      {error && <div>Unable to add new chore.</div>}
     </Container>
   );
 }
