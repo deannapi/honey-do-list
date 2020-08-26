@@ -31,7 +31,6 @@ export default function Homepage() {
     } else {
       return (
         <>
-          
           <Container text textAlign="center">
             <Grid columns={2}>
               <Grid.Row>
@@ -43,7 +42,6 @@ export default function Homepage() {
                         size="huge"
                         style={{
                           marginBottom: "10em",
-                          
                         }}
                       >
                         Login
@@ -76,30 +74,28 @@ export default function Homepage() {
 
   return (
     <>
-    <Container
-            as="h1"
-            content="Honey Do List"
-            style={{
-              fontSize: "4em",
-              fontWeight: "normal",
-              marginBottom: 0,
-              marginTop: "2em",
-              textAlign: "center",
-            }}
-          />
-          
-          <Container
-            as="h2"
-            content="A simple and easy chore management application that allows the user to add chores to their list, comment on chores, and assign/invite others to accept a chore."
-            style={{
-              fontSize: "1.7em",
-              fontWeight: "normal",
-              marginTop: "1.5em",
-            }}
-          />
-          {showNavigation()}
-          </>
-    
-  )
-  
+      <Container
+        as="h1"
+        content="Honey Do List"
+        style={{
+          fontSize: "4em",
+          fontWeight: "normal",
+          marginBottom: 0,
+          marginTop: "2em",
+          textAlign: "center",
+        }}
+      />
+
+      <Container
+        as="h2"
+        content="A simple and easy chore management application that allows the user to add chores to their list, comment on chores, and assign/invite others to accept a chore."
+        style={{
+          fontSize: "1.7em",
+          fontWeight: "normal",
+          marginTop: "1.5em",
+        }}
+      />
+      {showNavigation()}
+    </>
+  );
 }
