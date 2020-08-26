@@ -11,6 +11,13 @@ export default function Homepage() {
     if (Auth.loggedIn()) {
       return (
         <>
+
+        <body
+          style={{
+          background: `url(${Background})`,
+        }}>
+
+
         <Container>
           <h2>Please make a selection.</h2>
           <Grid columns={2}>
@@ -66,11 +73,16 @@ export default function Homepage() {
             </Grid.Row>
           </Grid>
         </Container>
+        </body>
       </>
       );
     } else {
       return (
         <>
+            <body
+          style={{
+          background: `url(${Background})`,
+        }}>
              <Container
         as="h1"
         content="Honey Do List"
@@ -128,6 +140,7 @@ export default function Homepage() {
               </Grid.Row>
             </Grid>
           </Container>
+          </body>
         </>
       );
     }
