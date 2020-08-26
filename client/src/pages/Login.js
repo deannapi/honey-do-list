@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/react-hooks';
-// import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
 import 'semantic-ui-css/semantic.min.css';
 import { Form, Input, Button, Container } from 'semantic-ui-react'
+// import { Redirect } from 'react-router';
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' })
@@ -29,12 +29,9 @@ function Login(props) {
     });
   };
 
+
   return (
     <Container text textAlign='center'>
-      {/* <Link to="/signup">
-        ← Go to Signup
-      </Link> */}
-
       <h2>Login</h2>
       <Form onSubmit={handleFormSubmit}>
           <Form.Field
@@ -63,7 +60,8 @@ function Login(props) {
           <Button color='teal' size='big'
             style={{
             marginBottom: '10em'
-            }}>
+            }}
+            >
             Login
           </Button>
       </Form>
