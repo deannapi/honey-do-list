@@ -4,6 +4,7 @@ import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
 import 'semantic-ui-css/semantic.min.css';
 import { Form, Input, Button, Container } from 'semantic-ui-react'
+import { Redirect } from "react-router-dom";
 // import { Redirect } from 'react-router';
 
 function Login(props) {

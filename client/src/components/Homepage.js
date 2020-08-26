@@ -8,29 +8,88 @@ export default function Homepage() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <Grid columns={1}>
-          <Grid.Row>
-            <Grid.Column>
-              <Link to="/" onClick={() => Auth.logout()}>
-                <Button.Group widths="1">
-                  <Button
-                    color="teal"
-                    size="huge"
-                    style={{
-                      marginBottom: "10em",
-                    }}
-                  >
-                    Logout
-                  </Button>
-                </Button.Group>
-              </Link>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <>
+        <Container>
+          <h2>Please make a selection.</h2>
+          <Grid columns={2}>
+            <Grid.Row>
+              <Grid.Column>
+                <Link to="/joingroup">
+                  <Button.Group widths="2">
+                    <Button
+                      color="teal"
+                      size="huge"
+                      style={{
+                        marginBottom: "10em",
+                      }}
+                    >Join a Group</Button>
+                  </Button.Group>
+                </Link>
+              </Grid.Column>
+              <Grid.Column>
+                <Link to="/mygroup">
+                  <Button.Group widths="2">
+                    <Button
+                      color="teal"
+                      size="huge"
+                      style={{
+                        marginBottom: "10em",
+                      }}
+                    >Go To My Group</Button>
+                  </Button.Group>
+                </Link>
+                </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+
+        <Container text textAlign="center">
+          <Grid columns={1}>
+            <Grid.Row>
+              <Grid.Column>
+                <Link to="/" onClick={() => Auth.logout()}>
+                  <Button.Group widths="1">
+                    <Button
+                      color="teal"
+                      size="huge"
+                      style={{
+                        marginBottom: "10em",
+                      }}
+                    >
+                      Logout
+                    </Button>
+                  </Button.Group>
+                </Link>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+      </>
       );
     } else {
       return (
         <>
+             <Container
+        as="h1"
+        content="Honey Do List"
+        style={{
+          fontSize: "4em",
+          fontWeight: "normal",
+          marginBottom: 0,
+          marginTop: "2em",
+          textAlign: "center",
+        }}
+      />
+        <Container
+          as="h2"
+          content="A simple and easy chore management application that allows the user to add chores to their list, comment on chores, and assign/invite others to accept a chore."
+          style={{
+            fontSize: "1.7em",
+            fontWeight: "normal",
+            marginTop: "1.5em",
+          }}
+        />
+
           <Container text textAlign="center">
             <Grid columns={2}>
               <Grid.Row>
@@ -74,27 +133,7 @@ export default function Homepage() {
 
   return (
     <>
-      <Container
-        as="h1"
-        content="Honey Do List"
-        style={{
-          fontSize: "4em",
-          fontWeight: "normal",
-          marginBottom: 0,
-          marginTop: "2em",
-          textAlign: "center",
-        }}
-      />
-
-      <Container
-        as="h2"
-        content="A simple and easy chore management application that allows the user to add chores to their list, comment on chores, and assign/invite others to accept a chore."
-        style={{
-          fontSize: "1.7em",
-          fontWeight: "normal",
-          marginTop: "1.5em",
-        }}
-      />
+ 
       {showNavigation()}
     </>
   );

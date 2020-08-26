@@ -5,7 +5,7 @@ import { Button, Container, Grid } from 'semantic-ui-react';
 
 export default function Option() {
     const loggedIn = Auth.loggedIn();
-
+ 
     return (
         <Container>
             <h2>Please make a selection.</h2>
@@ -41,4 +41,5 @@ export default function Option() {
             </Grid>
         </Container>
     )
+    
 };
