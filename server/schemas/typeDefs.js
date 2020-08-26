@@ -20,6 +20,7 @@ const typeDefs = gql`
     addComment(commentBody: String!): Comment
     addReaction(commentId: ID!, reactionBody: String!): Comment
     createGroup(groupId: ID!, groupName: String!): Group
+    addChore(choreBody: String!): Chore
   }
   type Auth {
     token: ID!
@@ -31,7 +32,7 @@ const typeDefs = gql`
     lastName: String
     username: String
     email: String
-    tasks: [Task]
+    chores: [Chore]
     comments: [Comment]
     group: [Group]
   }
@@ -40,9 +41,9 @@ const typeDefs = gql`
       groupName: String!
       users: [User]
   }
-  type Task {
+  type Chore {
     _id: ID
-    taskName: String
+    chore: String
     user: [User]
   }
   type Comment {

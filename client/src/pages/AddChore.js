@@ -5,7 +5,7 @@ import Auth from "../utils/auth";
 import { Form, Input, Button, Container } from "semantic-ui-react";
 
 export default function AddChore(props) {
-  const [formState] = useState({
+  const [formState, setFormState] = useState({
     chore: "",
   });
 
@@ -16,18 +16,30 @@ export default function AddChore(props) {
 
     const mutationResponse = await addChore({
       variables: {
-        chore: formState.chore,
+        choreBody: formState.chore,
       },
     });
     const token = mutationResponse.data.addChore.token;
     Auth.login(token);
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
   return (
     <Container>
       <h2>Add a Chore</h2>
       <Form onSubmit={handleFormSubmit}>
-        <Form.Field control={Input} label="Chore" id="chore-input" />
+        <Form.Field 
+        control={Input} label="Chore" id="chore-input" 
+        name="chore"
+        onChange={handleChange}
+        />
         <Button type="submit" color="teal" size="medium">Add Chore</Button>
       </Form>
       {error && <div>Unable to add new chore.</div>}

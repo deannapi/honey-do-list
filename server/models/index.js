@@ -1,6 +1,6 @@
 const User = require('./User');
-const Task = require('./Task');
+const Chore = require('./Chore');
 const Comment = require('./Comment');
 const Reaction = require('./Reaction');
 
-module.exports = { User, Task, Comment, Reaction };
+module.exports = { User, Chore, Comment, Reaction };

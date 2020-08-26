@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const taskSchema = new Schema({
+const choreSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -10,4 +10,4 @@ const taskSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Task', taskSchema);
+module.exports = mongoose.model('Chore', choreSchema);

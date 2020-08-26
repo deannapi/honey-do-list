@@ -14,7 +14,6 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import JoinGroup from "./pages/JoinGroup";
 import MyGroup from "./pages/MyGroup";
-// import AddChore from './pages/AddChore';
 
 
 const client = new ApolloClient({
@@ -45,7 +44,6 @@ export default function App() {
               <Route exact path="/chores" component={Chores} />
               <Route exact path="/joingroup" component={JoinGroup} />
               <Route exact path="/mygroup" component={MyGroup} />
-              {/* <Route exact path="/addchore" component={AddChore} /> */}
             </Switch>
           </div>
           <Footer />

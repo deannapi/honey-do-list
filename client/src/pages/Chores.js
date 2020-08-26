@@ -14,6 +14,8 @@ import {
   Input,
 } from "semantic-ui-react";
 
+import AddChore from './AddChore';
+
 export default function Chores(props) {
   return (
     <Container>
@@ -79,41 +81,8 @@ export default function Chores(props) {
           <Button content="Add Reply" labelPosition="left" />
         </Form>
       </Grid>
+
+      <AddChore />
     </Container>
   );
 }
-
-// function AddChore(props) {
-//   const [formState] = useState({
-//     chore: "",
-//   });
-
-//   const [addChore, { error }] = useMutation(ADD_CHORE);
-
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault();
-
-//     const mutationResponse = await addChore({
-//       variables: {
-//         chore: formState.chore,
-//       },
-//     });
-//     const token = mutationResponse.data.addChore.token;
-//     Auth.login(token);
-//   };
-
-//   return (
-//     <Container>
-//       <h2>Add a Chore</h2>
-//       <Form onSubmit={handleFormSubmit}>
-//         <Form.Field control={Input} label="Chore" id="chore-input" />
-//         <Button type="submit" color="teal" size="medium">
-//           Add Chore
-//         </Button>
-//       </Form>
-//       {error && <div>Unable to add new chore.</div>}
-//     </Container>
-//   );
-// }
-
-// export default { AddChore, Chores };
