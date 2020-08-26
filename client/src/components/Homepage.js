@@ -1,5 +1,7 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
+import Auth from '../utils/auth';
+
 import { Container, Button, Grid, Header } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import Background from "./cleaning.jpg";
@@ -130,8 +132,8 @@ export default function Homepage() {
       );
     }
   }
-}
-export default function Homepage() {
+
+
   return (
     <>
  
@@ -139,3 +141,5 @@ export default function Homepage() {
     </>
   );
 }
+
+
