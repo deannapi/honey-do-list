@@ -44,6 +44,7 @@ function Login(props) {
             id="form-input-control-error-email"
             onChange={handleChange}
             autoComplete="on"
+            name="email"
           />
         <Form.Field
             label="Password"
@@ -52,6 +53,7 @@ function Login(props) {
             onChange={handleChange}
             autoComplete="on"
             type="password"
+            name="password"
           />
         {
           error ? <div>

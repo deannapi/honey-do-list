@@ -40,7 +40,7 @@ const resolvers = {
         users: async () => {
             return User.find()
                 .select('__v -password')
-                .populate('family')
+                .populate('group')
                 .populate('comments');
         }
     },

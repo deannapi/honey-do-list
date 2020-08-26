@@ -52,6 +52,7 @@ export default function Signup(props) {
           id="form-input-control-first-name"
           onChange={handleChange}
           autoComplete="on"
+          name="firstName"
         />
         <Form.Field
           placeholder="Last Name"
@@ -60,6 +61,7 @@ export default function Signup(props) {
           id="form-input-control-last-name"
           onChange={handleChange}
           autoComplete="on"
+          name="lastName"
         />
         <Form.Field
           placeholder="Username"
@@ -68,6 +70,7 @@ export default function Signup(props) {
           id="Username"
           onChange={handleChange}
           autoComplete="on"
+          name="username"
         />
         <Form.Field
           placeholder="youremail@test.com"
@@ -76,6 +79,7 @@ export default function Signup(props) {
           id="form-input-control-error-email"
           onChange={handleChange}
           autoComplete="on"
+          name="email"
         />
         <Form.Field
           placeholder="must be at least 6 characters"
@@ -85,6 +89,7 @@ export default function Signup(props) {
           onChange={handleChange}
           autoComplete="on"
           type="password"
+          name="password"
         />
         <Button
           type="submit"          
