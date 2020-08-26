@@ -2,19 +2,27 @@ import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import { Container, Button, Grid, Header } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
+import Background from "./cleaning.jpg";
 
 
 export default function Homepage() {
   return (
+  <body
+    style={{
+      // backgroundColor: "yellow"
+      background: `url(${Background})`,
+
+    }}>
   <Container text textAlign='center'>
     <Header
       as='h1'
       content='Honey Do List'
       style={{
         fontSize: '4em',
-        fontWeight: 'normal',
+        fontWeight: 'bold',
         marginBottom: 0,
-        marginTop: '2em'
+        marginTop: '2em',
+        color: "yellow",
       }}
     />
     <Header
@@ -23,7 +31,8 @@ export default function Homepage() {
       style={{
         fontSize: '1.7em',
         fontWeight: 'normal',
-        marginTop: '1.5em'
+        marginTop: '1.5em',
+        color: "yellow",
       }}
     />
     <br></br>
@@ -57,5 +66,6 @@ export default function Homepage() {
       </Grid.Row>
     </Grid>
   </Container>
+  </body>
 )
 };

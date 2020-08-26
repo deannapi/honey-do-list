@@ -5,12 +5,18 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-  <Segment>
     <Sticky>
-    <Menu>
+    <Menu
+      style={{
+      backgroundColor: "yellow"
+      }}>
       <Container>
         <Menu.Item as="a" header>
-          <h1>Honey Do List</h1>
+          <h1
+          style={{
+            color: "teal",
+          }}
+          >Honey Do List</h1>
         </Menu.Item>
         <Menu.Menu position="right">
             <Menu.Item as="a" name="Tasks">
@@ -25,6 +31,5 @@ export default function Header() {
       </Container>
     </Menu>
     </Sticky>
-  </Segment>
 )
 };
