@@ -1,8 +1,8 @@
-import React from "react";
-import "semantic-ui-css/semantic.min.css";
-import { Container, Button, Grid } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import Auth from "../utils/auth";
+import React from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import { Container, Button, Grid, Header } from "semantic-ui-react";
+import { Link } from 'react-router-dom';
+import Background from "./cleaning.jpg";
 
 export default function Homepage() {
   function showNavigation() {
@@ -130,7 +130,8 @@ export default function Homepage() {
       );
     }
   }
-
+}
+export default function Homepage() {
   return (
     <>
  
