@@ -5,7 +5,6 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 // import { Provider } from "react-redux";
 
-import Option from "./pages/Option";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Homepage from './components/Homepage';
@@ -38,7 +37,6 @@ export default function App() {
           <div className="">
             <Switch>
               <Route exact path="/" component={Homepage} />
-              <Route exact path="/option" component={Option} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/chores" component={Chores} />
