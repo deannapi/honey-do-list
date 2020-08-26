@@ -35,9 +35,9 @@ export default function App() {
         {/* <div className=""> */}
           {/* <Provider> */}
           <Header />
-          <Homepage />
           <div className="">
             <Switch>
+              <Route exact path="/" component={Homepage} />
               <Route exact path="/option" component={Option} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />

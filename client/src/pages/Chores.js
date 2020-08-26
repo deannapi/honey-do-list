@@ -1,9 +1,7 @@
 //  this page stores the chores list
 // need checkboxes and commenting available
 import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
 import { ADD_CHORE } from "../utils/mutations";
-import Auth from "../utils/auth";
 import {
   Grid,
   Container,
@@ -33,7 +31,7 @@ export default function Chores(props) {
           <Grid.Column>
             <ul style={{ listStyle: "none" }}>
               <li>
-                <Checkbox label="Chore 1" />
+                <Checkbox value={this.state.Input} />
               </li>
               <li>
                 <Checkbox label="Chore 2" />

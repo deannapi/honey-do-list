@@ -31,10 +31,6 @@ function Login(props) {
 
   return (
     <Container text textAlign='center'>
-      {/* <Link to="/signup">
-        ← Go to Signup
-      </Link> */}
-
       <h2>Login</h2>
       <Form onSubmit={handleFormSubmit}>
           <Form.Field
