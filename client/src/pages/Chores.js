@@ -1,28 +1,30 @@
 //  this page stores the chores list
 // need checkboxes and commenting available
 import React from "react";
-import { ADD_REACTION } from "../utils/mutations";
 import {
   Grid,
   Container,
   Checkbox,
-  Comment,
-  Form,
-  Button,
 } from "semantic-ui-react";
 import AddChore from "./AddChore";
-import { QUERY_COMMENT } from "../utils/queries";
+import { QUERY_COMMENTS } from "../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
-import { useParams } from "react-router-dom";
+import CommentForm from '../components/CommentForm'; 
+import CommentList from '../components/CommentList';
 
 export default function Chores(props) {
-  const { id: commentId } = useParams();
+  // const { id: commentId } = useParams();
 
-  const { data } = useQuery(QUERY_COMMENT, {
-    variables: { id: commentId },
-  });
+  // const { data } = useQuery(QUERY_COMMENT, {
+  //   variables: { id: commentId },
+  // });
 
-  const comment = data?.comment || {};
+  // const comment = data?.comment || {};
+
+  const { data } = useQuery(QUERY_COMMENTS);
+
+  const comments = data?.comments || [];
+  console.log(comments);
 
   return (
     <>
@@ -73,42 +75,8 @@ export default function Chores(props) {
         <br></br>
         <AddChore />
         <br></br>
-        <Container>
-          <Grid columns={2} text textAlign="center">
-            <Grid.Row>
-              <Grid.Column>
-                <Comment>
-                  <Comment.Content>
-                    <Comment.Author> By: {comment.username} </Comment.Author>
-                    <Comment.Metadata>
-                      {" "}
-                      At: {comment.createdAt}{" "}
-                    </Comment.Metadata>
-                    <Comment.Text> {comment.commendBody} </Comment.Text>
-                    <Comment.Actions>
-                      <Comment.Action>
-                        <Form>
-                          <Form.TextArea />
-                          <Button
-                            color="teal"
-                            size="medium"
-                            style={{
-                              marginBottom: "4em",
-                              fontFamily: "-moz-initial",
-                            }}
-                            onClick={ADD_REACTION}
-                          >
-                            Comment
-                          </Button>
-                        </Form>
-                      </Comment.Action>
-                    </Comment.Actions>
-                  </Comment.Content>
-                </Comment>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Container>
+        <CommentList />
+        <CommentForm />
       </body>
     </>
   );

@@ -46,12 +46,12 @@ export default function CreateGroup(props) {
             color: "yellow",
             fontFamily: "-moz-initial"
           }}
-        >Go To My Group</h2>
+        >Search For My Group</h2>
         <Grid columns={1} text textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input icon='search' placeholder="Smith Family" type="text" />
+                <Input icon='search' placeholder="Smith Family" type="text" onChange={handleChange} />
                 <Label pointing='left'>Type in your group name</Label>
               </Form.Field>
             </Grid.Column>
@@ -67,7 +67,7 @@ export default function CreateGroup(props) {
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Link to="/joingroup">
+                <Link to="/chores">
                   <Button.Group widths={1}>
                     <Button
                        color="teal"

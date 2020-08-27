@@ -30,7 +30,7 @@ export default function Homepage() {
           <Grid columns={2}>
             <Grid.Row>
               <Grid.Column>
-                <Link to="/joingroup">
+                <Link to="/creategroup">
                   <Button.Group widths="2">
                     <Button
                       color="teal"
@@ -39,7 +39,7 @@ export default function Homepage() {
                         marginBottom: "10em",
                         fontFamily: "-moz-initial"
                       }}
-                    >Join a Group</Button>
+                    >Create A Group</Button>
                   </Button.Group>
                 </Link>
               </Grid.Column>

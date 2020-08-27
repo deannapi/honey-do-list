@@ -48,7 +48,7 @@ export default function JoinGroup(props) {
               fontFamily: "-moz-initial",
             }}
           >
-            Join Group
+            Create A Group
           </h2>
           <Grid columns={1} text textAlign="center">
             <Grid.Row>
@@ -68,7 +68,7 @@ export default function JoinGroup(props) {
               <Grid.Column>
                 <Form.Field>
                   <Input type="password" placeholder="Group Password" />
-                  <Label pointing='left'>Group Password</Label>
+                  <Label pointing='left' type="password">Group Password</Label>
                 </Form.Field>
               </Grid.Column>
             </Grid.Row>
@@ -76,8 +76,8 @@ export default function JoinGroup(props) {
           <Grid columns={2} text textAlign="center">
             <Grid.Row>
               <Grid.Column>
-                <Form.Field>
-                  <Link to="/chores">
+                <Form.Field onClick={handleFormSubmit}>
+                  <Link to="/joingroup">
                     <Button.Group widths="1">
                       <Button
                         color="teal"
@@ -86,7 +86,6 @@ export default function JoinGroup(props) {
                           marginBottom: "4em",
                           fontFamily: "-moz-initial",
                         }}
-                        onClick={handleFormSubmit}
                       >
                         Submit
                       </Button>
