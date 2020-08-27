@@ -4,22 +4,29 @@ import Auth from '../utils/auth';
 
 import { Container, Button, Grid, Header } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-import Background from "./cleaning.jpg";
+import Background from "./cleaning1.jpg";
 
 export default function Homepage() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
         <>
-
-        <body
-          style={{
-          background: `url(${Background})`,
-        }}>
-
-
-        <Container>
-          <h2>Please make a selection.</h2>
+    <body
+      style={{
+        background: "lightblue",
+        height: "700px",
+      }}>
+        <Container text textAlign="center">
+          <h2
+            style={{
+              fontSize: '2em',
+              fontWeight: 'bold',
+              marginBottom: '2em',
+              marginTop: '2em',
+              color: "yellow",
+              fontFamily: "-moz-initial"
+            }}
+          >Please make a selection.</h2>
           <Grid columns={2}>
             <Grid.Row>
               <Grid.Column>
@@ -30,6 +37,7 @@ export default function Homepage() {
                       size="huge"
                       style={{
                         marginBottom: "10em",
+                        fontFamily: "-moz-initial"
                       }}
                     >Join a Group</Button>
                   </Button.Group>
@@ -43,6 +51,7 @@ export default function Homepage() {
                       size="huge"
                       style={{
                         marginBottom: "10em",
+                        fontFamily: "-moz-initial"
                       }}
                     >Go To My Group</Button>
                   </Button.Group>
@@ -62,7 +71,9 @@ export default function Homepage() {
                       color="teal"
                       size="huge"
                       style={{
-                        marginBottom: "10em",
+                        marginTop: "5em",
+                        marginBottom: "3em",
+                        fontFamily: "-moz-initial"
                       }}
                     >
                       Logout
@@ -79,9 +90,10 @@ export default function Homepage() {
     } else {
       return (
         <>
-            <body
+        <body
           style={{
-            background: `url(${Background})`,
+          background:`url(${Background})`,
+          height: "800px",
         }}>
   <Container text textAlign='center'>
     <Header
@@ -91,8 +103,9 @@ export default function Homepage() {
         fontSize: '4em',
         fontWeight: 'bold',
         marginBottom: 0,
-        marginTop: '2em',
+        marginTop: '1em',
         color: "yellow",
+        fontFamily: "-moz-initial"
       }}
     />
     <Header
@@ -104,8 +117,11 @@ export default function Homepage() {
         marginTop: '1.5em',
         marginBottom: '2em',
         color: "yellow",
+        fontFamily: "-moz-initial"
       }}
     />
+    </Container>
+    <Container text textAlign='center'>
             <Grid columns={2}>
               <Grid.Row>
                 <Grid.Column>
@@ -116,6 +132,7 @@ export default function Homepage() {
                         size="huge"
                         style={{
                           marginBottom: "10em",
+                          fontFamily: "-moz-initial"
                         }}
                       >
                         Login
@@ -131,6 +148,7 @@ export default function Homepage() {
                         size="huge"
                         style={{
                           marginBottom: "10em",
+                          fontFamily: "-moz-initial"
                         }}
                       >
                         Signup

@@ -31,27 +31,27 @@ export default function CreateGroup(props) {
 
   return (
     <>
-      <Container>
-        <Link to="/">
-          <Button.Group>
-            <Button 
-              color="teal"
-              size="huge"
-              style={{
-                marginBottom: "2em",
-              }}
-            >Home</Button>
-          </Button.Group>
-        </Link>
-      </Container>
-
-      <Container style={{ marginBottom: "2em"}}>
-        <h2>Find My Group</h2>
-        <Grid columns={2}>
+          <body
+            style={{
+              background: "lightblue",
+              height: "700px",
+          }}>
+      <Container style={{ marginBottom: "2em"}} text textAlign="center">
+        <h2
+          style={{
+            fontSize: '2em',
+            fontWeight: 'bold',
+            marginBottom: '1em',
+            marginTop: '2em',
+            color: "yellow",
+            fontFamily: "-moz-initial"
+          }}
+        >Create A Group</h2>
+        <Grid columns={2} text textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input icon='search' placeholder="Smith Family" type="text" onChange={handleChange}/>
+                <Input icon='search' placeholder="Smith Family" type="text" />
                 <Label pointing='left'>Type in your group name</Label>
               </Form.Field>
             </Grid.Column>
@@ -59,7 +59,7 @@ export default function CreateGroup(props) {
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input type="password" />
+                <Input type="password" placeholder="Group Password" />
                 <Label pointing='left'>Group Password</Label>
               </Form.Field>
             </Grid.Column>
@@ -74,6 +74,7 @@ export default function CreateGroup(props) {
                        size="huge"
                        style={{
                          marginBottom: "4em",
+                         fontFamily: "-moz-initial"
                        }}
                        onClick={handleFormSubmit}
                     >Submit</Button>
@@ -84,6 +85,7 @@ export default function CreateGroup(props) {
           </Grid.Row>
         </Grid>
       </Container>
+      </body>
     </>
   );
 }
