@@ -11,8 +11,19 @@ import {
   Button,
 } from "semantic-ui-react";
 import AddChore from "./AddChore";
+import { QUERY_COMMENT } from '../utils/queries';
+import { useQuery } from "@apollo/react-hooks";
+import { useParams } from "react-router-dom";
 
 export default function Chores(props) {
+  const { id: commentId } = useParams();
+  
+  const { data } = useQuery(QUERY_COMMENT, {
+    variables: { id: commentId }
+  });
+
+  const comment = data?.comment || {};
+
   return (
     <>
       <Container>
@@ -21,9 +32,6 @@ export default function Chores(props) {
             <Grid.Column>
               <h2>Chores</h2>
             </Grid.Column>
-            {/* <Grid.Column>
-              <h2>Unassigned Chores</h2>
-            </Grid.Column> */}
           </Grid.Row>
 
           <Grid.Row>
@@ -43,23 +51,6 @@ export default function Chores(props) {
                 </li>
               </ul>
             </Grid.Column>
-
-            {/* <Grid.Column>
-              <ul style={{ listStyle: "none" }}>
-                <li>
-                  <Checkbox label="Unassigned Chore 1" />
-                </li>
-                <li>
-                  <Checkbox label="Unassigned Chore 2" />
-                </li>
-                <li>
-                  <Checkbox label="Unassigned Chore 3" />
-                </li>
-                <li>
-                  <Checkbox label="Unassigned THESE NEED TO COME FROM JS" />
-                </li>
-              </ul>
-            </Grid.Column> */}
           </Grid.Row>
         </Grid>
       </Container>
@@ -73,15 +64,15 @@ export default function Chores(props) {
             <Grid.Column>
               <Comment>
                 <Comment.Content>
-                  <Comment.Author label="username">By: </Comment.Author>
-                  <Comment.Metadata>Time Here</Comment.Metadata>
-                  <Comment.Text>This is my comment.</Comment.Text>
+                  <Comment.Author >By: {comment.username} </Comment.Author>
+                  <Comment.Metadata> At: {comment.createdAt}</Comment.Metadata>
+                  <Comment.Text>{comment.commendBody}</Comment.Text>
                   <Comment.Actions>
                     <Comment.Action>
                       <Form.TextArea />
                       <Button
                         color="teal"
-                        size="huge"
+                        size="medium"
                         style={{
                           marginBottom: "4em",
                         }}
