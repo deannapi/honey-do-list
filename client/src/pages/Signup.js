@@ -43,6 +43,7 @@ export default function Signup(props) {
     <body
     style={{
       background: "yellow",
+      height: "800px",
     }}>
     <Container text textAlign="center">
       {/* <Link to="/login">← Go to Login</Link> */}

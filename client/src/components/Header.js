@@ -16,6 +16,7 @@ export default function Header() {
           >
             <Container>
               <Menu.Item as="a" header>
+              <Link to="/">
                 <h1
                   style={{
                     color: "teal",
@@ -23,6 +24,7 @@ export default function Header() {
                 >
                   Honey Do List
                 </h1>
+              </Link>
               </Menu.Item>
               <Menu.Menu position="right">
                 <Menu.Item as="a" name="Tasks">

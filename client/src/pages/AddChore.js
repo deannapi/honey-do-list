@@ -32,11 +32,19 @@ export default function AddChore(props) {
   };
 
   return (
-    <Container>
-      <h2>Add a Chore</h2>
+    <Container text textAlign="center">
+      <h2
+        style={{
+          fontSize: '2em',
+          fontWeight: 'bold',
+          marginBottom: '1em',
+          marginTop: 0,
+          color: "yellow",
+        }}
+      >Add a Chore</h2>
       <Form onSubmit={handleFormSubmit}>
         <Form.Field 
-        control={Input} label="Chore" id="chore-input" 
+        control={Input} id="chore-input" 
         name="chore"
         onChange={handleChange}
         />

@@ -11,15 +11,21 @@ export default function Homepage() {
     if (Auth.loggedIn()) {
       return (
         <>
-
-        <body
-          style={{
-          background: `url(${Background})`,
-        }}>
-
-
-        <Container>
-          <h2>Please make a selection.</h2>
+    <body
+      style={{
+        background: "lightblue",
+        height: "700px",
+      }}>
+        <Container text textAlign="center">
+          <h2
+            style={{
+              fontSize: '2em',
+              fontWeight: 'bold',
+              marginBottom: '2em',
+              marginTop: '2em',
+              color: "yellow",
+            }}
+          >Please make a selection.</h2>
           <Grid columns={2}>
             <Grid.Row>
               <Grid.Column>
@@ -62,7 +68,8 @@ export default function Homepage() {
                       color="teal"
                       size="huge"
                       style={{
-                        marginBottom: "10em",
+                        marginTop: "5em",
+                        marginBottom: "3em"
                       }}
                     >
                       Logout
@@ -79,9 +86,10 @@ export default function Homepage() {
     } else {
       return (
         <>
-            <body
+        <body
           style={{
-            background: `url(${Background})`,
+          background: `url(${Background})`,
+          height: "800px",
         }}>
   <Container text textAlign='center'>
     <Header

@@ -16,37 +16,60 @@ import AddChore from "./AddChore";
 export default function Chores(props) {
   return (
     <>
+    <body
+      style={{
+        background: "lightblue",
+        height: "700px",
+      }}>
       <Container>
-        <Grid columns={2} divided>
-          <Grid.Row>
-            <Grid.Column>
-              <h2>Chores</h2>
+        <Grid columns={1}>
+            <Grid.Column text textAlign="center">
+              <h2
+                style={{
+                  fontSize: '3em',
+                  fontWeight: 'bold',
+                  marginBottom: 0,
+                  marginTop: '2em',
+                  color: "yellow",
+                }}
+              >Chores</h2>
             </Grid.Column>
-            <Grid.Column>
-              <h2>Unassigned Chores</h2>
-            </Grid.Column>
-          </Grid.Row>
+            {/* <Grid.Column text textAlign="center">
+              <h2
+                style={{
+                  fontSize: '2em',
+                  fontWeight: 'bold',
+                  marginBottom: '1em',
+                  marginTop: '2em',
+                  color: "teal",
+                }}
+              >Unassigned Chores</h2>
+            </Grid.Column> */}
+
 
           <Grid.Row>
-            <Grid.Column>
+            <Grid.Column text textAlign="center">
               <ul style={{ listStyle: "none" }}>
                 <li>
-                  <Checkbox label="chore 1" />
+                  <Checkbox 
+                  label="Chore 1" />
                 </li>
+                <br></br>
                 <li>
                   <Checkbox label="Chore 2" />
                 </li>
+                <br></br>
                 <li>
                   <Checkbox label="Chore 3" />
                 </li>
-                <li>
+                {/* <li>
                   <Checkbox label="THESE NEED TO COME FROM JS" />
-                </li>
+                </li> */}
               </ul>
             </Grid.Column>
 
-            <Grid.Column>
-              <ul style={{ listStyle: "none" }}>
+            {/* <Grid.Column>
+              <ul style={{ listStyle: "none" }} text textAlign="left">
                 <li>
                   <Checkbox label="Unassigned Chore 1" />
                 </li>
@@ -60,26 +83,27 @@ export default function Chores(props) {
                   <Checkbox label="Unassigned THESE NEED TO COME FROM JS" />
                 </li>
               </ul>
-            </Grid.Column>
+            </Grid.Column> */}
           </Grid.Row>
         </Grid>
       </Container>
 
       <Container>
-        <Grid columns={2}>
+        <Grid columns={2} text textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <Comment>
                 <Comment.Content>
-                  <Comment.Author as="a">Get username</Comment.Author>
+                  {/* <Comment.Author as="a">Get username</Comment.Author>
                   <Comment.Metadata>Time Here</Comment.Metadata>
-                  <Comment.Text>This is my comment.</Comment.Text>
+                  <Comment.Text>This is my comment.</Comment.Text> */}
                   <Comment.Actions>
                     <Comment.Action>
+                      <Form>
                       <Form.TextArea />
                       <Button
                         color="teal"
-                        size="huge"
+                        size="medium"
                         style={{
                           marginBottom: "4em",
                         }}
@@ -87,6 +111,7 @@ export default function Chores(props) {
                       >
                         Comment
                       </Button>
+                      </Form>
                     </Comment.Action>
                   </Comment.Actions>
                 </Comment.Content>
@@ -99,6 +124,7 @@ export default function Chores(props) {
       <br></br>
       <br></br>
       <AddChore />
+      </body>
     </>
   );
 }

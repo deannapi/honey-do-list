@@ -31,7 +31,7 @@ export default function CreateGroup(props) {
 
   return (
     <>
-      <Container>
+      {/* <Container>
         <Link to="/">
           <Button.Group>
             <Button 
@@ -43,24 +43,36 @@ export default function CreateGroup(props) {
             >Home</Button>
           </Button.Group>
         </Link>
-      </Container>
-
-      <Container style={{ marginBottom: "2em"}}>
-        <h2>Create A Group</h2>
-        <Grid columns={2}>
+      </Container> */}
+          <body
+            style={{
+              background: "lightblue",
+              height: "700px",
+          }}>
+      <Container style={{ marginBottom: "2em"}} text textAlign="center">
+        <h2
+          style={{
+            fontSize: '2em',
+            fontWeight: 'bold',
+            marginBottom: '1em',
+            marginTop: '2em',
+            color: "yellow",
+          }}
+        >Create A Group</h2>
+        <Grid columns={2} text textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
                 <Input icon='search' placeholder="Smith Family" type="text" />
-                <Label pointing='left'>Type in your group name</Label>
+                {/* <Label pointing='left'>Type in your group name</Label> */}
               </Form.Field>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input type="password" />
-                <Label pointing='left'>Group Password</Label>
+                <Input type="password" placeholder="Group Password" />
+                {/* <Label pointing='left'>Group Password</Label> */}
               </Form.Field>
             </Grid.Column>
           </Grid.Row>
@@ -83,6 +95,7 @@ export default function CreateGroup(props) {
           </Grid.Row>
         </Grid>
       </Container>
+      </body>
     </>
   );
 }
