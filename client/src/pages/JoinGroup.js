@@ -30,7 +30,7 @@ export default function JoinGroup(props) {
 
   return (
     <div className="container my-1">
-      <Link to="/join">← Go to Join</Link>
+      <Link to="/">Home</Link>
 
       <h2>Join Group</h2>
       <form onSubmit={handleFormSubmit}>

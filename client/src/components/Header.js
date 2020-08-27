@@ -1,6 +1,6 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import { Container, Menu, Image, Segment, Sticky } from "semantic-ui-react";
+import { Container, Menu, Image, Sticky } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 
 export default function Header() {

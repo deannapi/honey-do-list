@@ -30,7 +30,7 @@ export default function CreateGroup(props) {
 
   return (
     <div className="">
-      <Link to="/signup">Go to Signup</Link>
+      <Link to="/">Home</Link>
 
       <h2>Create A Group</h2>
       <form onSubmit={handleFormSubmit}>
