@@ -40,10 +40,21 @@ export default function Signup(props) {
   };
 
   return (
+    <body
+    style={{
+      background: "yellow",
+    }}>
     <Container text textAlign="center">
       {/* <Link to="/login">← Go to Login</Link> */}
 
-      <h2>Signup</h2>
+      <h2
+      style={{
+        color: "teal",
+        marginTop: '1.5em',
+        marginBottom: '2em',
+        fontSize: '1.7em',
+      }}
+      >Signup</h2>
       <Form onSubmit={handleFormSubmit}>
         <Form.Field
           placeholder="First Name"
@@ -104,5 +115,6 @@ export default function Signup(props) {
       </Form>
       {error && <div>Sign up failed.</div>}
     </Container>
+    </body>
   );
 }
