@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
 import { JOIN_GROUP } from "../utils/mutations";
 import Auth from "../utils/auth";
+import { Container, Button, Grid, Form, Input, Label } from 'semantic-ui-react';
 
 export default function JoinGroup(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -29,37 +30,59 @@ export default function JoinGroup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/">Home</Link>
+    <>
+      <Container>
+        <Link to="/">
+          <Button.Group>
+            <Button 
+              color="teal"
+              size="huge"
+              style={{
+                marginBottom: "2em",
+              }}
+            >Home</Button>
+          </Button.Group>
+        </Link>
+      </Container>
 
-      <h2>Join Group</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-            autoComplete="on"
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="grpPwd">Group Password:</label>
-          <input
-            placeholder="must be at least 6 characters"
-            name="password"
-            type="password"
-            id="grpPwd"
-            onChange={handleChange}
-            autoComplete="on"
-          />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+      <Container style={{ marginBottom: "2em"}}>
+        <h2>Join Group</h2>
+        <Grid columns={2}>
+          <Grid.Row>
+            <Grid.Column>
+              <Form.Field>
+                <Input icon='search' placeholder="Smith Family" type="text" />
+                <Label pointing='left'>Type in your group name</Label>
+              </Form.Field>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <Form.Field>
+                <Input type="password" />
+                <Label pointing='left'>Group Password</Label>
+              </Form.Field>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <Form.Field>
+                <Link to="/chores">
+                  <Button.Group widths={1}>
+                    <Button
+                       color="teal"
+                       size="huge"
+                       style={{
+                         marginBottom: "4em",
+                       }}
+                    >Submit</Button>
+                  </Button.Group>
+                </Link>
+              </Form.Field>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </>
   );
 }
