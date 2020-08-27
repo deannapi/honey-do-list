@@ -11,11 +11,11 @@ export default function Homepage() {
     if (Auth.loggedIn()) {
       return (
         <>
-    <body
-      style={{
-        background: "lightblue",
-        height: "700px",
-      }}>
+        <body
+          style={{
+          background:`url(${Background})`,
+          height: "800px",
+        }}>
         <Container text textAlign="center">
           <h2
             style={{
@@ -36,7 +36,7 @@ export default function Homepage() {
                       color="teal"
                       size="huge"
                       style={{
-                        marginBottom: "10em",
+                        // marginBottom: "10em",
                         fontFamily: "-moz-initial"
                       }}
                     >Join a Group</Button>
@@ -50,7 +50,7 @@ export default function Homepage() {
                       color="teal"
                       size="huge"
                       style={{
-                        marginBottom: "10em",
+                        marginBottom: "3em",
                         fontFamily: "-moz-initial"
                       }}
                     >Go To My Group</Button>
@@ -60,9 +60,8 @@ export default function Homepage() {
             </Grid.Row>
           </Grid>
         </Container>
-
-        <Container text textAlign="center">
-          <Grid columns={1}>
+        <Container style={{ marginBottom: "2em"}} text textAlign="center">
+        <Grid columns={2} text textAlign="center">
             <Grid.Row>
               <Grid.Column>
                 <Link to="/" onClick={() => Auth.logout()}>
@@ -71,8 +70,6 @@ export default function Homepage() {
                       color="teal"
                       size="huge"
                       style={{
-                        marginTop: "5em",
-                        marginBottom: "3em",
                         fontFamily: "-moz-initial"
                       }}
                     >
@@ -83,7 +80,7 @@ export default function Homepage() {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-        </Container>
+          </Container>
         </body>
       </>
       );
