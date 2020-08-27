@@ -147,7 +147,6 @@ export default function Homepage() {
     }
   }
 
-
   return (
     <>
  
@@ -155,5 +154,3 @@ export default function Homepage() {
     </>
   );
 }
-
-

@@ -10,7 +10,6 @@ import {
   Form,
   Button,
 } from "semantic-ui-react";
-
 import AddChore from "./AddChore";
 
 export default function Chores(props) {
@@ -22,16 +21,16 @@ export default function Chores(props) {
             <Grid.Column>
               <h2>Chores</h2>
             </Grid.Column>
-            <Grid.Column>
+            {/* <Grid.Column>
               <h2>Unassigned Chores</h2>
-            </Grid.Column>
+            </Grid.Column> */}
           </Grid.Row>
 
           <Grid.Row>
             <Grid.Column>
               <ul style={{ listStyle: "none" }}>
                 <li>
-                  <Checkbox label="chore 1" />
+                  <Checkbox value={AddChore} />
                 </li>
                 <li>
                   <Checkbox label="Chore 2" />
@@ -45,7 +44,7 @@ export default function Chores(props) {
               </ul>
             </Grid.Column>
 
-            <Grid.Column>
+            {/* <Grid.Column>
               <ul style={{ listStyle: "none" }}>
                 <li>
                   <Checkbox label="Unassigned Chore 1" />
@@ -60,18 +59,21 @@ export default function Chores(props) {
                   <Checkbox label="Unassigned THESE NEED TO COME FROM JS" />
                 </li>
               </ul>
-            </Grid.Column>
+            </Grid.Column> */}
           </Grid.Row>
         </Grid>
       </Container>
 
+      <br></br>
+      <AddChore />
+      <br></br>
       <Container>
         <Grid columns={2}>
           <Grid.Row>
             <Grid.Column>
               <Comment>
                 <Comment.Content>
-                  <Comment.Author as="a">Get username</Comment.Author>
+                  <Comment.Author label="username">By: </Comment.Author>
                   <Comment.Metadata>Time Here</Comment.Metadata>
                   <Comment.Text>This is my comment.</Comment.Text>
                   <Comment.Actions>
@@ -95,10 +97,6 @@ export default function Chores(props) {
           </Grid.Row>
         </Grid>
       </Container>
-
-      <br></br>
-      <br></br>
-      <AddChore />
     </>
   );
 }

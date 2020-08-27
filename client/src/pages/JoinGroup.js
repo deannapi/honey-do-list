@@ -51,8 +51,8 @@ export default function JoinGroup(props) {
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input icon='search' placeholder="Smith Family" type="text" />
-                <Label pointing='left'>Type in your group name</Label>
+                <Input icon='search' placeholder="Smith Family" type="text" onChange={handleChange} />
+                <Label pointing='left'>Type in your desired group name</Label>
               </Form.Field>
             </Grid.Column>
           </Grid.Row>
@@ -75,6 +75,7 @@ export default function JoinGroup(props) {
                        style={{
                          marginBottom: "4em",
                        }}
+                       onClick={handleFormSubmit}
                     >Submit</Button>
                   </Button.Group>
                 </Link>

@@ -46,12 +46,12 @@ export default function CreateGroup(props) {
       </Container>
 
       <Container style={{ marginBottom: "2em"}}>
-        <h2>Create A Group</h2>
+        <h2>Find My Group</h2>
         <Grid columns={2}>
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input icon='search' placeholder="Smith Family" type="text" />
+                <Input icon='search' placeholder="Smith Family" type="text" onChange={handleChange}/>
                 <Label pointing='left'>Type in your group name</Label>
               </Form.Field>
             </Grid.Column>
@@ -75,6 +75,7 @@ export default function CreateGroup(props) {
                        style={{
                          marginBottom: "4em",
                        }}
+                       onClick={handleFormSubmit}
                     >Submit</Button>
                   </Button.Group>
                 </Link>

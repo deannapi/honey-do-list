@@ -33,14 +33,19 @@ export default function AddChore(props) {
 
   return (
     <Container>
-      <h2>Add a Chore</h2>
       <Form onSubmit={handleFormSubmit}>
-        <Form.Field 
-        control={Input} label="Chore" id="chore-input" 
-        name="chore"
-        onChange={handleChange}
-        />
-        <Button type="submit" color="teal" size="medium">Add Chore</Button>
+        <Form.Field>
+          <Input placeholder="mop the floor" type="text" onChange={handleChange} name="chore"/>
+          <Button.Group>
+            <Button
+              type="submit"
+              color="teal"
+              size="medium"
+            >
+              Add Chore
+            </Button>
+          </Button.Group>
+        </Form.Field>
       </Form>
       {error && <div>Unable to add new chore.</div>}
     </Container>
