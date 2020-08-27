@@ -35,7 +35,7 @@ export default function Header() {
                       color: "teal",
                       fontFamily: "-moz-initial"
                     }}
-                  >Tasks</Link>
+                  >Chores</Link>
                 </Menu.Item>
                 <Menu.Item as="a" name="Shopping">
                   <Image src="https://img.icons8.com/color/48/000000/shopping-cart-loaded.png" />
