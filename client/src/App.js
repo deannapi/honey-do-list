@@ -1,7 +1,7 @@
+import ApolloClient from "apollo-boost";
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 // import { Provider } from "react-redux";
 
@@ -11,7 +11,7 @@ import Homepage from './components/Homepage';
 import Chores from "./pages/Chores";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import JoinGroup from "./pages/JoinGroup";
+import CreateGroup from "./pages/CreateGroup";
 import MyGroup from "./pages/MyGroup";
 
 
@@ -40,7 +40,7 @@ export default function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/chores" component={Chores} />
-              <Route exact path="/joingroup" component={JoinGroup} />
+              <Route exact path="/creategroup" component={CreateGroup} />
               <Route exact path="/mygroup" component={MyGroup} />
             </Switch>
           </div>

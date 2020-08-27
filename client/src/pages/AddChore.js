@@ -32,7 +32,7 @@ export default function AddChore(props) {
   };
 
   return (
-    <Container>
+    <Container textAlign="center">
       <Form onSubmit={handleFormSubmit}>
         <Form.Field>
           <Input placeholder="mop the floor" type="text" onChange={handleChange} name="chore"/>
