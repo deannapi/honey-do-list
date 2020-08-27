@@ -4,7 +4,7 @@ import Auth from '../utils/auth';
 
 import { Container, Button, Grid, Header } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-import Background from "./cleaning.jpg";
+import Background from "./cleaning1.jpg";
 
 export default function Homepage() {
   function showNavigation() {
@@ -92,7 +92,7 @@ export default function Homepage() {
         <>
         <body
           style={{
-          background: `url(${Background})`,
+          background:`url(${Background})`,
           height: "800px",
         }}>
   <Container text textAlign='center'>
@@ -103,7 +103,7 @@ export default function Homepage() {
         fontSize: '4em',
         fontWeight: 'bold',
         marginBottom: 0,
-        marginTop: '2em',
+        marginTop: '1em',
         color: "yellow",
         fontFamily: "-moz-initial"
       }}
@@ -120,6 +120,8 @@ export default function Homepage() {
         fontFamily: "-moz-initial"
       }}
     />
+    </Container>
+    <Container text textAlign='center'>
             <Grid columns={2}>
               <Grid.Row>
                 <Grid.Column>
