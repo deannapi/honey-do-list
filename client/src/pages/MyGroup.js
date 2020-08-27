@@ -13,8 +13,8 @@ export default function CreateGroup(props) {
     event.preventDefault();
     const mutationResponse = await createGroup({
       variables: {
-        email: formState.email,
-        password: formState.password,
+        groupName: formState.groupName,
+        password: formState.groupPassword,
       },
     });
     const token = mutationResponse.data.createGroup.token;
@@ -51,7 +51,13 @@ export default function CreateGroup(props) {
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input icon='search' placeholder="Smith Family" type="text" onChange={handleChange} />
+                 <Input
+                    icon='search' 
+                    placeholder="Smith Family" 
+                    type="text" 
+                    onChange={handleChange} 
+                    name="groupName"
+                 />
                 <Label pointing='left'>Type in your group name</Label>
               </Form.Field>
             </Grid.Column>
@@ -59,7 +65,11 @@ export default function CreateGroup(props) {
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input type="password" placeholder="Group Password" />
+                <Input
+                 type="password" 
+                 placeholder="Group Password"
+                 name= "password" 
+                 />
                 <Label pointing='left'>Group Password</Label>
               </Form.Field>
             </Grid.Column>

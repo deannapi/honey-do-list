@@ -13,8 +13,8 @@ export default function JoinGroup(props) {
     event.preventDefault();
     const mutationResponse = await joinGroup({
       variables: {
-        email: formState.email,
-        password: formState.password,
+        groupName: formState.groupName,
+        password: formState.groupPassword,
       },
     });
     const token = mutationResponse.data.joinGroup.token;
@@ -59,6 +59,7 @@ export default function JoinGroup(props) {
                     placeholder="Smith Family"
                     type="text"
                     onChange={handleChange}
+                    name="groupName"
                   />
                   <Label pointing="left">Type in your desired group name</Label>
                 </Form.Field>
@@ -76,7 +77,10 @@ export default function JoinGroup(props) {
           <Grid columns={2} text textAlign="center">
             <Grid.Row>
               <Grid.Column>
-                <Form.Field onClick={handleFormSubmit}>
+                <Form.Field 
+                onClick={handleFormSubmit}
+                name="groupPassword"
+                >
                   <Link to="/joingroup">
                     <Button.Group widths="1">
                       <Button

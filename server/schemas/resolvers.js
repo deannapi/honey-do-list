@@ -99,7 +99,10 @@ const resolvers = {
     },
 
     createGroup: async (parent, args, context) => {
-      console.log("need to add function still");
+      const group = await group.create(args);
+      const token = signToken(group);
+
+      return (group, token);
     },
 
     addChore: async (parent, args) => {
