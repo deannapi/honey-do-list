@@ -20,6 +20,7 @@ export default function Header() {
                 <h1
                   style={{
                     color: "teal",
+                    fontFamily: "-moz-initial"
                   }}
                 >
                   Honey Do List
@@ -29,11 +30,21 @@ export default function Header() {
               <Menu.Menu position="right">
                 <Menu.Item as="a" name="Tasks">
                   <Image src="https://img.icons8.com/cute-clipart/64/000000/task.png" />
-                  <Link to="/chores">Tasks</Link>
+                  <Link to="/chores"
+                    style={{
+                      color: "teal",
+                      fontFamily: "-moz-initial"
+                    }}
+                  >Tasks</Link>
                 </Menu.Item>
                 <Menu.Item as="a" name="Shopping">
                   <Image src="https://img.icons8.com/color/48/000000/shopping-cart-loaded.png" />
-                  <Link to="/">Shopping</Link>
+                  <Link to="/"
+                    style={{
+                      color: "teal",
+                      fontFamily: "-moz-initial"
+                    }}
+                  >Shopping</Link>
                 </Menu.Item>
               </Menu.Menu>
             </Container>

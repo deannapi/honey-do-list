@@ -7,6 +7,7 @@ export default function Footer() {
           background: "yellow",
           color: "teal",
           textAlign: "right",
+          fontFamily: "-moz-initial"
         }}>
             <div className="">
                 &copy;2020 Created By: Kiran Riaz, Christopher Short, DeAnna Martinez

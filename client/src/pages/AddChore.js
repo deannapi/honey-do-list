@@ -40,6 +40,7 @@ export default function AddChore(props) {
           marginBottom: '1em',
           marginTop: 0,
           color: "yellow",
+          fontFamily: "-moz-initial"
         }}
       >Add a Chore</h2>
       <Form onSubmit={handleFormSubmit}>
@@ -48,7 +49,11 @@ export default function AddChore(props) {
         name="chore"
         onChange={handleChange}
         />
-        <Button type="submit" color="teal" size="medium">Add Chore</Button>
+        <Button type="submit" color="teal" size="large"
+          style={{
+            fontFamily: "-moz-initial"
+          }}
+        >Add Chore</Button>
       </Form>
       {error && <div>Unable to add new chore.</div>}
     </Container>

@@ -57,6 +57,7 @@ export default function CreateGroup(props) {
             marginBottom: '1em',
             marginTop: '2em',
             color: "yellow",
+            fontFamily: "-moz-initial"
           }}
         >Create A Group</h2>
         <Grid columns={2} text textAlign="center">
@@ -86,6 +87,7 @@ export default function CreateGroup(props) {
                        size="huge"
                        style={{
                          marginBottom: "4em",
+                         fontFamily: "-moz-initial"
                        }}
                     >Submit</Button>
                   </Button.Group>

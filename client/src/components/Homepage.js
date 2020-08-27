@@ -24,6 +24,7 @@ export default function Homepage() {
               marginBottom: '2em',
               marginTop: '2em',
               color: "yellow",
+              fontFamily: "-moz-initial"
             }}
           >Please make a selection.</h2>
           <Grid columns={2}>
@@ -36,6 +37,7 @@ export default function Homepage() {
                       size="huge"
                       style={{
                         marginBottom: "10em",
+                        fontFamily: "-moz-initial"
                       }}
                     >Join a Group</Button>
                   </Button.Group>
@@ -49,6 +51,7 @@ export default function Homepage() {
                       size="huge"
                       style={{
                         marginBottom: "10em",
+                        fontFamily: "-moz-initial"
                       }}
                     >Go To My Group</Button>
                   </Button.Group>
@@ -69,7 +72,8 @@ export default function Homepage() {
                       size="huge"
                       style={{
                         marginTop: "5em",
-                        marginBottom: "3em"
+                        marginBottom: "3em",
+                        fontFamily: "-moz-initial"
                       }}
                     >
                       Logout
@@ -101,6 +105,7 @@ export default function Homepage() {
         marginBottom: 0,
         marginTop: '2em',
         color: "yellow",
+        fontFamily: "-moz-initial"
       }}
     />
     <Header
@@ -112,6 +117,7 @@ export default function Homepage() {
         marginTop: '1.5em',
         marginBottom: '2em',
         color: "yellow",
+        fontFamily: "-moz-initial"
       }}
     />
             <Grid columns={2}>
@@ -124,6 +130,7 @@ export default function Homepage() {
                         size="huge"
                         style={{
                           marginBottom: "10em",
+                          fontFamily: "-moz-initial"
                         }}
                       >
                         Login
@@ -139,6 +146,7 @@ export default function Homepage() {
                         size="huge"
                         style={{
                           marginBottom: "10em",
+                          fontFamily: "-moz-initial"
                         }}
                       >
                         Signup

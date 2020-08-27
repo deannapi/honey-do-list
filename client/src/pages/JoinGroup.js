@@ -44,6 +44,7 @@ export default function JoinGroup(props) {
             marginBottom: '1em',
             marginTop: '2em',
             color: "yellow",
+            fontFamily: "-moz-initial"
           }}
         >Join Group</h2>
         <Grid columns={2} text textAlign="center">
@@ -75,6 +76,7 @@ export default function JoinGroup(props) {
                        size="huge"
                        style={{
                          marginBottom: "4em",
+                         fontFamily: "-moz-initial"
                        }}
                     >Submit</Button>
                   </Button.Group>

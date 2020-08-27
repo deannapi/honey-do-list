@@ -31,6 +31,7 @@ export default function Chores(props) {
                   marginBottom: 0,
                   marginTop: '2em',
                   color: "yellow",
+                  fontFamily: "-moz-initial"
                 }}
               >Chores</h2>
             </Grid.Column>
@@ -103,9 +104,10 @@ export default function Chores(props) {
                       <Form.TextArea />
                       <Button
                         color="teal"
-                        size="medium"
+                        size="large"
                         style={{
                           marginBottom: "4em",
+                          fontFamily: "-moz-initial"
                         }}
                         onClick={ADD_REACTION}
                       >
