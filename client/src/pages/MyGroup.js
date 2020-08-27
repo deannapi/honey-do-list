@@ -46,8 +46,8 @@ export default function CreateGroup(props) {
             color: "yellow",
             fontFamily: "-moz-initial"
           }}
-        >Create A Group</h2>
-        <Grid columns={2} text textAlign="center">
+        >Go To My Group</h2>
+        <Grid columns={1} text textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
