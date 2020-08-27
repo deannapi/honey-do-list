@@ -51,7 +51,8 @@ export default function AddChore(props) {
         />
         <Button type="submit" color="teal" size="large"
           style={{
-            fontFamily: "-moz-initial"
+            fontFamily: "-moz-initial",
+            marginBottom: "2em"
           }}
         >Add Chore</Button>
       </Form>

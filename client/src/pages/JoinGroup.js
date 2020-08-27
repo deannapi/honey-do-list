@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { JOIN_GROUP } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { Container, Button, Grid, Form, Input, Label } from 'semantic-ui-react';
+import Background from "./cleaning.jpg";
 
 export default function JoinGroup(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -33,8 +34,8 @@ export default function JoinGroup(props) {
     <>
     <body
     style={{
-      background: "lightblue",
-      height: "700px",
+      background:`url(${Background})`,
+      height: "800px",
     }}>
       <Container style={{ marginBottom: "2em"}} text textAlign="center">
         <h2

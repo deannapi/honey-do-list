@@ -106,7 +106,7 @@ export default function Chores(props) {
                         color="teal"
                         size="large"
                         style={{
-                          marginBottom: "4em",
+                          marginBottom: "2em",
                           fontFamily: "-moz-initial"
                         }}
                         onClick={ADD_REACTION}

@@ -53,7 +53,7 @@ export default function Homepage() {
                         marginBottom: "3em",
                         fontFamily: "-moz-initial"
                       }}
-                    >Go To My Group</Button>
+                    >Create a Group</Button>
                   </Button.Group>
                 </Link>
                 </Grid.Column>
