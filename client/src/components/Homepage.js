@@ -81,30 +81,31 @@ export default function Homepage() {
         <>
             <body
           style={{
-          background: `url(${Background})`,
+            background: `url(${Background})`,
         }}>
-             <Container
-        as="h1"
-        content="Honey Do List"
-        style={{
-          fontSize: "4em",
-          fontWeight: "normal",
-          marginBottom: 0,
-          marginTop: "2em",
-          textAlign: "center",
-        }}
-      />
-        <Container
-          as="h2"
-          content="A simple and easy chore management application that allows the user to add chores to their list, comment on chores, and assign/invite others to accept a chore."
-          style={{
-            fontSize: "1.7em",
-            fontWeight: "normal",
-            marginTop: "1.5em",
-          }}
-        />
-
-          <Container text textAlign="center">
+  <Container text textAlign='center'>
+    <Header
+      as='h1'
+      content='Honey Do List'
+      style={{
+        fontSize: '4em',
+        fontWeight: 'bold',
+        marginBottom: 0,
+        marginTop: '2em',
+        color: "yellow",
+      }}
+    />
+    <Header
+      as='h2'
+      content='A simple and easy chore management application that allows the user to add chores to their list, comment on chores, and assign/invite others to accept a chore.'
+      style={{
+        fontSize: '1.7em',
+        fontWeight: 'normal',
+        marginTop: '1.5em',
+        marginBottom: '2em',
+        color: "yellow",
+      }}
+    />
             <Grid columns={2}>
               <Grid.Row>
                 <Grid.Column>

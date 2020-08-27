@@ -30,8 +30,19 @@ function Login(props) {
 
 
   return (
+    <body
+    style={{
+      background: "yellow",
+    }}>
     <Container text textAlign='center'>
-      <h2>Login</h2>
+      <h2
+      style={{
+        color: "teal",
+        marginTop: '1.5em',
+        marginBottom: '2em',
+        fontSize: '1.7em',
+      }}
+      >Login</h2>
       <Form onSubmit={handleFormSubmit}>
           <Form.Field
             placeholder="youremail@test.com"
@@ -42,6 +53,7 @@ function Login(props) {
             autoComplete="on"
             name="email"
           />
+          <br></br>
         <Form.Field
             label="Password"
             control={Input}
@@ -65,6 +77,7 @@ function Login(props) {
           </Button>
       </Form>
     </Container>
+    </body>
   );
 }
 
