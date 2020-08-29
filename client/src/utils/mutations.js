@@ -83,11 +83,7 @@ export const ADD_COMMENT = gql`
     addComment(commentBody: $commentBody) {
       _id
       commentBody
-      createdAt
-      username
-      reactions {
-        _id
-      }
+      firstName
     }
   }
 `;

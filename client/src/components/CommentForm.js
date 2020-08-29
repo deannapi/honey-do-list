@@ -59,7 +59,7 @@ export default function CommentForm(props) {
                     <Comment.Actions>
                       <Comment.Action>
                         <Form onSubmit={handleFormSubmit}>
-                          <Form.TextArea />
+                          <Form.TextArea onChange={(event) => setBody(event.target.value) } />
                           <Button
                             color="teal"
                             size="medium"

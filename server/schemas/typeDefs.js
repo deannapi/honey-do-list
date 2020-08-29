@@ -5,7 +5,7 @@ const typeDefs = gql`
     me: User,
     users: [User],
     user(username: String!): User,
-    comments(username: String): [Comment],
+    comments: [Comment],
     comment(_id: ID!): Comment
   }
   type Mutation {
@@ -53,7 +53,7 @@ const typeDefs = gql`
     commentBody: String
     user: [User]
     createdAt: String
-    username: String
+    firstName: String
   }
   type Reaction {
     _id: ID

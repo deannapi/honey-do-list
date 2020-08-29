@@ -1,18 +1,12 @@
 import gql from 'graphql-tag';
 
 export const QUERY_COMMENTS = gql`
-    query comments($username: String) {
-        comments(username: $username) {
+    query comments {
+        comments {
             _id
             commentBody
             createdAt
-            username
-            reactions {
-                _id
-                createdAt
-                username
-                reactionBody
-            }
+            firstName
         }
     }
 `;

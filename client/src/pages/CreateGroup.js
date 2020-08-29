@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { JOIN_GROUP } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { Container, Button, Grid, Form, Input, Label } from "semantic-ui-react";
@@ -13,8 +13,8 @@ export default function JoinGroup(props) {
     event.preventDefault();
     const mutationResponse = await joinGroup({
       variables: {
-        groupName: formState.groupName,
-        password: formState.groupPassword,
+        email: formState.email,
+        password: formState.password,
       },
     });
     const token = mutationResponse.data.joinGroup.token;
@@ -27,6 +27,13 @@ export default function JoinGroup(props) {
       ...formState,
       [name]: value,
     });
+  };
+
+  const history = useHistory();
+
+  const routeChange = () => {
+    let path = 'mygroup';
+    history.push(path);
   };
 
   return (
@@ -59,7 +66,6 @@ export default function JoinGroup(props) {
                     placeholder="Smith Family"
                     type="text"
                     onChange={handleChange}
-                    name="groupName"
                   />
                   <Label pointing="left">Type in your desired group name</Label>
                 </Form.Field>
@@ -68,8 +74,10 @@ export default function JoinGroup(props) {
             <Grid.Row>
               <Grid.Column>
                 <Form.Field>
-                  <Input type="password" placeholder="Group Password" />
-                  <Label pointing='left' type="password">Group Password</Label>
+                  <Form>
+                    <Input type="password" placeholder="Group Password" />
+                    <Label pointing='left' type="password">Group Password</Label>
+                  </Form>
                 </Form.Field>
               </Grid.Column>
             </Grid.Row>
@@ -77,11 +85,8 @@ export default function JoinGroup(props) {
           <Grid columns={2} text textAlign="center">
             <Grid.Row>
               <Grid.Column>
-                <Form.Field 
-                onClick={handleFormSubmit}
-                name="groupPassword"
-                >
-                  <Link to="/joingroup">
+                <Form.Field onClick={handleFormSubmit}>
+                  <Link to="/mygroup">
                     <Button.Group widths="1">
                       <Button
                         color="teal"
@@ -90,6 +95,7 @@ export default function JoinGroup(props) {
                           marginBottom: "4em",
                           fontFamily: "-moz-initial",
                         }}
+                        onClick={routeChange}
                       >
                         Submit
                       </Button>

@@ -1,5 +1,3 @@
-//  this page stores the chores list
-// need checkboxes and commenting available
 import React from "react";
 import {
   Grid,
@@ -13,14 +11,6 @@ import CommentForm from '../components/CommentForm';
 import CommentList from '../components/CommentList';
 
 export default function Chores(props) {
-  // const { id: commentId } = useParams();
-
-  // const { data } = useQuery(QUERY_COMMENT, {
-  //   variables: { id: commentId },
-  // });
-
-  // const comment = data?.comment || {};
-
   const { data } = useQuery(QUERY_COMMENTS);
 
   const comments = data?.comments || [];
@@ -75,7 +65,7 @@ export default function Chores(props) {
         <br></br>
         <AddChore />
         <br></br>
-        <CommentList />
+        <CommentList comments={comments} />
         <CommentForm />
       </body>
     </>

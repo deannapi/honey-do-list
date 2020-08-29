@@ -3,7 +3,7 @@ const { User, Comment, Chore } = require("../models");
 const { signToken } = require("../utils/auth");
 
 // NEED TO GET STRIPE NUMBER STILL
-const stripe = require("stripe")("");
+// const stripe = require("stripe")("");
 
 const resolvers = {
   Query: {
@@ -28,9 +28,11 @@ const resolvers = {
       throw new AuthenticationError("You are not logged in.");
     },
     // get all comments
-    comments: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Comment.find(params).sort({ createdAt: -1 });
+    comments: async (parent, args, context) => {
+      console.log(context.user.firstName);
+      return Comment.find({ firstName: context.user.firstName }).sort({
+        createdAt: -1,
+      });
     },
     // get a comment by id
     comment: async (parent, { _id }) => {
@@ -66,10 +68,12 @@ const resolvers = {
     },
 
     addComment: async (parent, args, context) => {
+      // return console.log(args, context.user);
+
       if (context.user) {
         const comment = await Comment.create({
           ...args,
-          username: context.user.username,
+          firstName: context.user.firstName,
         });
 
         await User.findByIdAndUpdate(
@@ -102,7 +106,7 @@ const resolvers = {
       const group = await group.create(args);
       const token = signToken(group);
 
-      return (group, token);
+      return group, token;
     },
 
     addChore: async (parent, args) => {
