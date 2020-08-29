@@ -32,6 +32,7 @@ const typeDefs = gql`
     lastName: String
     username: String
     email: String
+    password: String
     chores: [Chore]
     comments: [Comment]
     group: [Group]
@@ -39,6 +40,7 @@ const typeDefs = gql`
   type Group {
       id: ID!
       groupName: String!
+      groupPassword: String
       users: [User]
   }
   type Chore {
