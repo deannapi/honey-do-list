@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_COMMENT } from "../utils/mutations";
 import { QUERY_COMMENTS, QUERY_ME } from "../utils/queries";
-import { Container, Form, Button, Comment, Grid } from "semantic-ui-react";
+import { Container, Form, Button, Grid } from "semantic-ui-react";
 
 export default function CommentForm(props) {
   const [commentBody, setBody] = useState("");
@@ -47,38 +47,32 @@ export default function CommentForm(props) {
     <body
       style={{
         background: "lightblue",
-        height: "700px",
+        height: "175px",
       }}
     >
-        <Container>
-          <Grid columns={2} text textAlign="center">
-            <Grid.Row>
-              <Grid.Column>
-                <Comment>
-                  <Comment.Content>
-                    <Comment.Actions>
-                      <Comment.Action>
-                        <Form onSubmit={handleFormSubmit}>
-                          <Form.TextArea onChange={(event) => setBody(event.target.value) } />
-                          <Button
-                            color="teal"
-                            size="medium"
-                            style={{
-                              marginBottom: "4em",
-                              fontFamily: "-moz-initial",
-                            }}
-                          >
-                            Comment
-                          </Button>
-                        </Form>
-                      </Comment.Action>
-                    </Comment.Actions>
-                  </Comment.Content>
-                </Comment>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Container>
+      <Container>
+        <Grid columns={2} text textAlign="center">
+          <Grid.Row>
+            <Grid.Column>
+              <Form onSubmit={handleFormSubmit}>
+                <Form.TextArea
+                  onChange={(event) => setBody(event.target.value)}
+                />
+                <Button
+                  color="teal"
+                  size="medium"
+                  style={{
+                    marginBottom: "4em",
+                    fontFamily: "-moz-initial",
+                  }}
+                >
+                  Comment
+                </Button>
+              </Form>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
     </body>
   );
 }

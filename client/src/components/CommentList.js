@@ -11,7 +11,8 @@ export default function CommentList({ comments }) {
               <p>
                 {comment.firstName} commented on {comment.createdAt}
               </p>
-              <p>{comment.commentBody}</p>
+              <p>"{comment.commentBody}"</p>
+              <br></br>
             </div>
           ))}
       </Container>

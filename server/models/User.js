@@ -42,6 +42,12 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Comment'
         }
+    ],
+    chores: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Chore'
+        }
     ]
 });
 
