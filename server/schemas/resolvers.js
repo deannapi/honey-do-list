@@ -3,7 +3,7 @@ const { User, Comment, Chore } = require("../models");
 const { signToken } = require("../utils/auth");
 
 // NEED TO GET STRIPE NUMBER STILL
-const stripe = require("stripe")("");
+// const stripe = require("stripe")("");
 
 const resolvers = {
   Query: {
@@ -28,9 +28,11 @@ const resolvers = {
       throw new AuthenticationError("You are not logged in.");
     },
     // get all comments
-    comments: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Comment.find(params).sort({ createdAt: -1 });
+    comments: async (parent, args, context) => {
+      console.log(context.user.firstName);
+      return Comment.find({ firstName: context.user.firstName }).sort({
+        createdAt: -1,
+      });
     },
     // get a comment by id
     comment: async (parent, { _id }) => {
@@ -42,6 +44,11 @@ const resolvers = {
         .select("__v -password")
         .populate("group")
         .populate("comments");
+    },
+    chores: async (parent, args, context) => {
+      return Chore.find({ chore: context.choreBody }).sort({
+        createdAt: -1,
+      });
     },
   },
 
@@ -66,10 +73,12 @@ const resolvers = {
     },
 
     addComment: async (parent, args, context) => {
+      // return console.log( "firstName: ", context.user.firstName );
+
       if (context.user) {
         const comment = await Comment.create({
           ...args,
-          username: context.user.username,
+          firstName: context.user.firstName,
         });
 
         await User.findByIdAndUpdate(
@@ -80,6 +89,25 @@ const resolvers = {
         return comment;
       }
       throw new AuthenticationError("You are not logged in.");
+    },
+
+    addChore: async (parent, args, context) => {
+      // return console.log("chores: ", args.choreBody);
+
+      if (context.user) {
+        const chore = await Chore.create({
+          ...args,
+          choreBody: args.choreBody,
+        });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { chores: chore._id } },
+          { new: true }
+        );
+        return chore;
+      }
+      // throw new AuthenticationError("You are not logged in");
     },
 
     addReaction: async (parent, { commentId, reactionBody }, context) => {
@@ -99,13 +127,10 @@ const resolvers = {
     },
 
     createGroup: async (parent, args, context) => {
-      console.log("need to add function still");
-    },
+      const group = await group.create(args);
+      const token = signToken(group);
 
-    addChore: async (parent, args) => {
-      const chore = await Chore.create({ name: args.choreBody });
-
-      return { chore };
+      return group, token;
     },
 
     // removeChore: async (parent, args) => {

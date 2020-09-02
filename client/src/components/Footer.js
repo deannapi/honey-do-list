@@ -7,10 +7,11 @@ export default function Footer() {
           background: "yellow",
           color: "teal",
           textAlign: "right",
-          fontFamily: "-moz-initial"
+          fontSize: "18px",
+          height: "30px"
         }}>
             <div className="">
-                &copy;2020 Created By: Kiran Riaz, Christopher Short, DeAnna Martinez
+                &copy;2020 Created By: Kiran Riaz, Christopher Short, DeAnna Martinez     
             </div>
         </footer>
     );

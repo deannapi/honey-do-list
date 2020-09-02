@@ -31,7 +31,7 @@ const userSchema = new Schema({
         required: true,
         minlength: 6
     },
-    family: [
+    group: [
         {
             type: Schema.Types.ObjectId,
             ref: 'User'
@@ -41,6 +41,12 @@ const userSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             ref: 'Comment'
+        }
+    ],
+    chores: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Chore'
         }
     ]
 });

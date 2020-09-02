@@ -74,6 +74,17 @@ export const ADD_CHORE = gql`
   mutation addChore($choreBody: String!) {
     addChore(choreBody: $choreBody) {
       _id
+      choreBody
+    }
+  }
+`;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($commentBody: String!) {
+    addComment(commentBody: $commentBody) {
+      _id
+      commentBody
+      firstName
     }
   }
 `;

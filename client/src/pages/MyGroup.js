@@ -14,8 +14,8 @@ export default function CreateGroup(props) {
     event.preventDefault();
     const mutationResponse = await createGroup({
       variables: {
-        email: formState.email,
-        password: formState.password,
+        groupName: formState.groupName,
+        password: formState.groupPassword,
       },
     });
     const token = mutationResponse.data.createGroup.token;
@@ -32,19 +32,6 @@ export default function CreateGroup(props) {
 
   return (
     <>
-      {/* <Container>
-        <Link to="/">
-          <Button.Group>
-            <Button 
-              color="teal"
-              size="huge"
-              style={{
-                marginBottom: "2em",
-              }}
-            >Home</Button>
-          </Button.Group>
-        </Link>
-      </Container> */}
           <body
             style={{
               background:`url(${Background})`,
@@ -60,28 +47,38 @@ export default function CreateGroup(props) {
             color: "yellow",
             fontFamily: "-moz-initial"
           }}
-        >Create A Group</h2>
-        <Grid columns={2} text textAlign="center">
+        >Search For My Group</h2>
+        <Grid columns={1} text textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input icon='search' placeholder="Smith Family" type="text" />
-                {/* <Label pointing='left'>Type in your group name</Label> */}
+                 <Input
+                    icon='search' 
+                    placeholder="Smith Family" 
+                    type="text" 
+                    onChange={handleChange} 
+                    name="groupName"
+                 />
+                <Label pointing='left'>Type in your group name</Label>
               </Form.Field>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Input type="password" placeholder="Group Password" />
-                {/* <Label pointing='left'>Group Password</Label> */}
+                <Input
+                 type="password" 
+                 placeholder="Group Password"
+                 name= "password" 
+                 />
+                <Label pointing='left'>Group Password</Label>
               </Form.Field>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column>
               <Form.Field>
-                <Link to="/joingroup">
+                <Link to="/chores">
                   <Button.Group widths={1}>
                     <Button
                        color="teal"
@@ -90,6 +87,7 @@ export default function CreateGroup(props) {
                          marginBottom: "4em",
                          fontFamily: "-moz-initial"
                        }}
+                       onClick={handleFormSubmit}
                     >Submit</Button>
                   </Button.Group>
                 </Link>

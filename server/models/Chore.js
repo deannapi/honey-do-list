@@ -1,13 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
 const choreSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
-    }
+  choreBody: {
+    type: String,
+    required: true,
+    minlength: 1,
+    maxlength: 50,
+  },
 });
 
-module.exports = mongoose.model('Chore', choreSchema);
+module.exports = mongoose.model("Chore", choreSchema);
