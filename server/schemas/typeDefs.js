@@ -22,8 +22,10 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addComment(commentBody: String!): Comment
     addReaction(commentId: ID!, reactionBody: String!): Comment
+    joinGroup(groupId: ID!, groupName: String!): Group
     createGroup(groupId: ID!, groupName: String!): Group
     addChore(choreBody: String!): Chore
+    removeChore(choreBody: String!): Chore
   }
 
   type Auth {

@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_CHORE } from "../utils/mutations";
 import { QUERY_ALL_CHORES, QUERY_ME } from "../utils/queries";
 import { Container, Form, Button, Grid } from "semantic-ui-react";
+import { saveChoreIds, getChoreIds } from '../utils/localStorage';
 
 export default function AddChore(props) {
-  const [choreBody, setBody] = useState("");
+  const [choreBody, setBody] = useState('');
+
+  // create state to hold saved choreId values
+  const [savedChoreIds, setSavedChoreIds] = useState(getChoreIds());
+
+  // set up useEffect hook to save 'savedChoreIds' to list to localStorage on component unmount
+  useEffect(() => {
+    return () => saveChoreIds(savedChoreIds);
+  });
+
   const [addChore] = useMutation(ADD_CHORE, {
-    update(cache, { data: { addChore } }) {
+    update(cache, { choreData: { addChore } }) {
       try {
         const { chores } = cache.readQuery({ query: QUERY_ALL_CHORES });
         cache.writeQuery({
           query: QUERY_ALL_CHORES,
-          data: { chores: [addChore, ...chores] },
+          choreData: { chores: [addChore, ...chores] },
         });
       } catch (e) {
         console.log(e);
@@ -22,7 +32,7 @@ export default function AddChore(props) {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, chores: [...me.chores, addChore] } },
+        choreData: { me: { ...me, chores: [...me.chores, addChore] } },
       });
     },
   });
@@ -36,13 +46,19 @@ export default function AddChore(props) {
         variables: { choreBody },
       });
 
+      // const { items } = await response.json();
+      // const choreData = items.map((chore) => ({
+      //   choreId: chore.id,
+      //   choreBody: chore.choreBody
+      // }));
+
       // clear form value
       setBody("");
     } catch (e) {
       console.log(e);
     }
 
-    // console.log("Chore: ", choreBody );
+    console.log("Chore: ", choreBody );
   };
 
   return (
@@ -61,6 +77,8 @@ export default function AddChore(props) {
                   marginBottom: "4em",
                   fontFamily: "-moz-initial",
                 }}
+                type="submit"
+                variant="success"
               >
                 Add Chore
               </Button>

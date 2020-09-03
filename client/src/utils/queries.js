@@ -56,10 +56,14 @@ export const QUERY_USER = gql`
   }
 `;
 
-// export const QUERY_GROUP = gql`
-// {
-
-// }`
+export const QUERY_GROUP = gql`
+  query group {
+    group {
+      _id
+      groupName
+      groupPassword
+    }
+}`
 
 export const QUERY_ME = gql`
   {

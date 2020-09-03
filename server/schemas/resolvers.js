@@ -16,16 +16,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You are not logged in.");
     },
-    user: async (parent, args, context) => {
-      if (context.user) {
-        const user = await User.findById(_id).populate({
-          // NOT SURE WHAT TO PUT HERE
-          path: "",
-          populate: "",
-        });
-        return user;
-      }
-      throw new AuthenticationError("You are not logged in.");
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+        .populate('comments')
+        .populate('group')
     },
     // get all comments
     comments: async (parent, args, context) => {
@@ -133,9 +128,29 @@ const resolvers = {
       return group, token;
     },
 
-    // removeChore: async (parent, args) => {
-    //     console.log("add function here");
-    // }
+    joinGroup: async(parent, { groupId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { group: groupId }},
+          { new: true }
+        ).populate('group');
+        return updatedUser;
+      }
+      throw new AuthenticationError('You are not logged in.');
+    },
+
+    removeChore: async (parent, args, context) => {
+        if (context.user) {
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { chores: { choreId: chore._id }}},
+            { new: true }
+          );
+          return updatedUser;
+        }
+        throw new  AuthenticationError('You are not logged in.')
+    }
   },
 };
 

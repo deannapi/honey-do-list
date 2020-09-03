@@ -32,7 +32,7 @@ export default function JoinGroup(props) {
   const history = useHistory();
 
   const routeChange = () => {
-    let path = 'mygroup';
+    let path = "mygroup";
     history.push(path);
   };
 
@@ -75,8 +75,14 @@ export default function JoinGroup(props) {
               <Grid.Column>
                 <Form.Field>
                   <Form>
-                    <Input type="password" placeholder="Group Password" />
-                    <Label pointing='left' type="password">Group Password</Label>
+                    <Input
+                      type="password"
+                      placeholder="Group Password"
+                      autocomplete="on"
+                    />
+                    <Label pointing="left" type="password">
+                      Group Password
+                    </Label>
                   </Form>
                 </Form.Field>
               </Grid.Column>
@@ -85,23 +91,25 @@ export default function JoinGroup(props) {
           <Grid columns={2} text textAlign="center">
             <Grid.Row>
               <Grid.Column>
-                <Form.Field onClick={handleFormSubmit}>
-                  <Link to="/mygroup">
-                    <Button.Group widths="1">
-                      <Button
-                        color="teal"
-                        size="huge"
-                        style={{
-                          marginBottom: "4em",
-                          fontFamily: "-moz-initial",
-                        }}
-                        onClick={routeChange}
-                      >
-                        Submit
-                      </Button>
-                    </Button.Group>
-                  </Link>
-                </Form.Field>
+                <Form onSubmit={handleFormSubmit}>
+                  <Form.Field>
+                    <Link to="/mygroup">
+                      <Button.Group widths="1">
+                        <Button
+                          color="teal"
+                          size="huge"
+                          style={{
+                            marginBottom: "4em",
+                            fontFamily: "-moz-initial",
+                          }}
+                          onClick={routeChange}
+                        >
+                          Submit
+                        </Button>
+                      </Button.Group>
+                    </Link>
+                  </Form.Field>
+                </Form>
               </Grid.Column>
             </Grid.Row>
           </Grid>

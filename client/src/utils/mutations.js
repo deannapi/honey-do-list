@@ -88,3 +88,12 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const REMOVE_CHORE = gql`
+  mutation removeChore($choreBody: String!) {
+    removeChore(choreBody: $choreBody) {
+      _id
+      choreBody
+    }
+  }
+`;
