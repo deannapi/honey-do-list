@@ -8,10 +8,10 @@ import {
   Button,
 } from "semantic-ui-react";
 import { REMOVE_CHORE } from "../utils/mutations";
-import { useMutation, useQuery } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 import { removeChoreId } from "../utils/localStorage";
-import { QUERY_ME } from "../utils/queries";
+// import { QUERY_ME } from "../utils/queries";
 
 export default function ChoreList({ chores }) {
   const [removeChore, { error }] = useMutation(REMOVE_CHORE);
