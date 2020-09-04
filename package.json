@@ -23,7 +23,8 @@
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^1.2.1"
+    "semantic-ui-react": "^1.2.1",
+    "concurrently": "^5.3.0"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -59,6 +60,6 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^5.3.0"
+    
   }
 }
