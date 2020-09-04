@@ -1,39 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_CHORE } from "../utils/mutations";
 import { QUERY_ALL_CHORES, QUERY_ME } from "../utils/queries";
 import { Container, Form, Button, Grid } from "semantic-ui-react";
-import { saveChoreIds, getChoreIds } from '../utils/localStorage';
+// import { saveChoreIds, getChoreIds } from '../utils/localStorage';
 
-export default function AddChore(props) {
-  const [choreBody, setBody] = useState('');
+export default function AddChoreForm(props) {
+  const [choreBody, setBody] = useState("");
 
-  // create state to hold saved choreId values
-  const [savedChoreIds, setSavedChoreIds] = useState(getChoreIds());
+  // // create state to hold saved choreId values
+  // const [savedChoreIds, setSavedChoreIds] = useState(getChoreIds());
 
-  // set up useEffect hook to save 'savedChoreIds' to list to localStorage on component unmount
-  useEffect(() => {
-    return () => saveChoreIds(savedChoreIds);
-  });
+  // // set up useEffect hook to save 'savedChoreIds' to list to localStorage on component unmount
+  // useEffect(() => {
+  //   return () => saveChoreIds(savedChoreIds);
+  // });
 
   const [addChore] = useMutation(ADD_CHORE, {
-    update(cache, { choreData: { addChore } }) {
+    update(cache, { data: { addChore } }) {
       try {
-        const { chores } = cache.readQuery({ query: QUERY_ALL_CHORES });
+        const { chores } = cache.readQuery({ query: QUERY_ALL_CHORES, variables: { id: addChore.chore._id } });
         cache.writeQuery({
           query: QUERY_ALL_CHORES,
-          choreData: { chores: [addChore, ...chores] },
+          data: { chores: [addChore, ...chores] },
         });
       } catch (e) {
-        console.log(e);
+        console.error(e);
       }
 
       // append new chore to the end of the array
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        choreData: { me: { ...me, chores: [...me.chores, addChore] } },
+        data: { me: { ...me, chores: [...me.chores, addChore] } },
       });
+      // cache.modify({
+      //   fields: {
+      //     chores(existingChoreRefs = [], { readField }) {
+      //       const newChoreRef = cache.writeFragment({
+      //         data: addChore,
+      //         fragment: gql`
+      //           fragment NewChore on Chore {
+      //             choreId
+      //             choreBody
+      //           }
+      //         `
+      //       });
+      //       return [...existingChoreRefs, newChoreRef];
+      //     }
+      //   }
+      // });
     },
   });
 
@@ -55,15 +71,15 @@ export default function AddChore(props) {
       // clear form value
       setBody("");
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
 
-    console.log("Chore: ", choreBody );
+    // console.log("Chore: ", choreBody );
   };
 
   return (
     <Container>
-      <Grid columns={2} text textAlign="center">
+      <Grid columns={2} textAlign="center">
         <Grid.Row>
           <Grid.Column>
             <Form onSubmit={handleFormSubmit}>

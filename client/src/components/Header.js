@@ -15,7 +15,7 @@ export default function Header() {
             }}
           >
             <Container>
-              <Menu.Item as="a" header>
+              <Menu.Item header>
               <Link to="/">
                 <h1
                   style={{
@@ -28,7 +28,7 @@ export default function Header() {
               </Link>
               </Menu.Item>
               <Menu.Menu position="right">
-                <Menu.Item as="a" name="Tasks">
+                <Menu.Item name="Tasks">
                   <Image src="https://img.icons8.com/cute-clipart/64/000000/task.png" />
                   <Link to="/chores"
                     style={{
@@ -37,7 +37,7 @@ export default function Header() {
                     }}
                   >Chores</Link>
                 </Menu.Item>
-                <Menu.Item as="a" name="Shopping">
+                <Menu.Item name="Shopping">
                   <Image src="https://img.icons8.com/color/48/000000/shopping-cart-loaded.png" />
                   <Link to="/"
                     style={{

@@ -6,6 +6,7 @@ import { Container, Form, Button, Grid } from "semantic-ui-react";
 
 export default function CommentForm(props) {
   const [commentBody, setBody] = useState("");
+
   const [addComment] = useMutation(ADD_COMMENT, {
     update(cache, { data: { addComment } }) {
       try {
@@ -44,14 +45,8 @@ export default function CommentForm(props) {
   };
 
   return (
-    <body
-      style={{
-        background: "lightblue",
-        height: "175px",
-      }}
-    >
       <Container>
-        <Grid columns={2} text textAlign="center">
+        <Grid columns={2} textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <Form onSubmit={handleFormSubmit}>
@@ -73,6 +68,5 @@ export default function CommentForm(props) {
           </Grid.Row>
         </Grid>
       </Container>
-    </body>
   );
 }
