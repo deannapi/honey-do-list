@@ -1,6 +1,10 @@
 {
   "name": "honey-do-list",
   "version": "0.1.0",
+  "engines": {
+    "npm": "6.x",
+    "node": "12.x"
+  },
   "private": true,
   "description": "House chores get done with this app!",
   "main": "server/server.js",
