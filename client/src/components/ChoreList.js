@@ -5,7 +5,7 @@ import {
   List,
   Container,
   Icon,
-  Button,
+  Button
 } from "semantic-ui-react";
 import { REMOVE_CHORE } from "../utils/mutations";
 import { useMutation } from "@apollo/react-hooks";
@@ -49,8 +49,7 @@ export default function ChoreList({ chores }) {
         {chores &&
           chores.map((chore) => (
             <div key={chore._id} defaultValue={chore.choreBody}>
-              {/* {chore.choreBody} */}
-              <Form>
+               <Form>
                 <Form.Field>
                   <List>
                     <List.Item>
@@ -62,11 +61,11 @@ export default function ChoreList({ chores }) {
                             {/* <br></br> */}
                             <Button
                               onClick={() => handleRemoveChore(chore.choreId)}
-                              style={ { borderRadius: "7px", marginLeft: "8px"}}
+                              style={ { borderRadius: "50px", marginLeft: "8px"}}
                               size="mini"
                               
                             >
-                              <Icon name="trash" fitted="true" circular="true" color="black" />
+                              <Icon name="trash" fitted={true} color="black" />
                             </Button>
                           </li>
                         </ul>

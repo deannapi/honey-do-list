@@ -11,14 +11,12 @@ export default function Chores(props) {
   // get comment data
   const { data } = useQuery(QUERY_COMMENTS);
   const comments = data?.comments || [];
-  console.log("Comments: ", comments);
+  // console.log("Comments: ", comments);
 
   // get chore data
   const { data: choreData }  = useQuery(QUERY_ALL_CHORES);
-
-  console.log("Chores: ", choreData);
   const chores = choreData?.chores || [];
-  
+  // console.log("Chores: ", chores);
 
   return (
       <body
