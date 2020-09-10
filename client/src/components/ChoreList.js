@@ -33,7 +33,7 @@ export default function ChoreList({ chores }) {
       console.log(data);
 
       if (error) {
-        throw new Error("Cannot delete chore.");
+        throw new Error("You are not authorized to delete this chore.");
       }
 
       // upon success, remove chore from localStorage
@@ -48,7 +48,8 @@ export default function ChoreList({ chores }) {
       <Container style={{ margin: "15px" }}>
         {chores &&
           chores.map((chore) => (
-            <div key={chore._id}>
+            <div key={chore._id} defaultValue={chore.choreBody}>
+              {/* {chore.choreBody} */}
               <Form>
                 <Form.Field>
                   <List>
@@ -58,10 +59,14 @@ export default function ChoreList({ chores }) {
                           <li style={{ margin: "0 0 5px 0" }}>
                             {/* {chore.choreBody} */}
                             <Checkbox label={chore.choreBody} />
+                            {/* <br></br> */}
                             <Button
                               onClick={() => handleRemoveChore(chore.choreId)}
+                              style={ { borderRadius: "7px", marginLeft: "8px"}}
+                              size="mini"
+                              
                             >
-                              <Icon name="trash" />
+                              <Icon name="trash" fitted="true" circular="true" color="black" />
                             </Button>
                           </li>
                         </ul>

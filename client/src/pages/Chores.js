@@ -1,6 +1,6 @@
 import React from "react";
 import { QUERY_COMMENTS, QUERY_ALL_CHORES } from "../utils/queries";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import CommentForm from "../components/CommentForm";
 import CommentList from "../components/CommentList";
@@ -14,15 +14,11 @@ export default function Chores(props) {
   console.log("Comments: ", comments);
 
   // get chore data
-  const { chore: choreBody } = useParams();
-  const { choreData } = useQuery(QUERY_ALL_CHORES, {
-    fetchPolicy: "network-only",
-    variables: { chore: choreBody }
-  });
-  console.log("choreData: ", choreData);
-  // const { choreData } = useQuery(QUERY_ALL_CHORES);
-  const chores = choreData?.choreBody || [];
-  // console.log("Chores: ", chores);
+  const { data: choreData }  = useQuery(QUERY_ALL_CHORES);
+
+  console.log("Chores: ", choreData);
+  const chores = choreData?.chores || [];
+  
 
   return (
       <body

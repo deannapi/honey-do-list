@@ -6,6 +6,14 @@ import { Container, Form, Button, Grid } from "semantic-ui-react";
 
 export default function CommentForm(props) {
   const [commentBody, setBody] = useState("");
+  const [userComments, setUserComments] = useState([
+    // {
+    //   commentBody: '',
+    //   createdAt: "",
+    //   firstName: '',
+    //   id: 1,
+    // }
+  ]);
 
   const [addComment] = useMutation(ADD_COMMENT, {
     update(cache, { data: { addComment } }) {
@@ -46,10 +54,33 @@ export default function CommentForm(props) {
 
   return (
       <Container>
+        {userComments.map((comment) => (
+            <div key={comment._id}>
+              <p>
+                {comment.firstName} commented on {comment.createdAt}
+              </p>
+              <p>"{comment.commentBody}"</p>
+              <br></br>
+            </div>
+          ))}
+
         <Grid columns={2} textAlign="center">
           <Grid.Row>
             <Grid.Column>
-              <Form onSubmit={handleFormSubmit}>
+              <Form
+                //onSubmit={handleFormSubmit}
+                onSubmit={() => {
+                  setUserComments([
+                    ...userComments,
+                    {
+                      commentBody: `${userComments.length} comment`,
+                      createdAt: "Aug 28th, 2020 at 09:05 pm",
+                      firstName: 'DeAnna',
+                      id: userComments.length,
+                    }
+                  ])
+                }}
+              >
                 <Form.TextArea
                   onChange={(event) => setBody(event.target.value)}
                 />
