@@ -6,14 +6,14 @@ import { Container, Form, Button, Grid } from "semantic-ui-react";
 
 export default function CommentForm(props) {
   const [commentBody, setBody] = useState("");
-  const [userComments, setUserComments] = useState([
+  // const [userComments, setUserComments] = useState([
     // {
     //   commentBody: '',
     //   createdAt: "",
     //   firstName: '',
     //   id: 1,
     // }
-  ]);
+  // ]);
 
   const [addComment] = useMutation(ADD_COMMENT, {
     update(cache, { data: { addComment } }) {
@@ -54,32 +54,32 @@ export default function CommentForm(props) {
 
   return (
       <Container>
-        {userComments.map((comment) => (
+        {/* {userComments && userComments.map((comment) => (
             <div key={comment._id}>
-              <p>
+              <p  style={{ fontWeight: "bold", color: "teal" }}>
                 {comment.firstName} commented on {comment.createdAt}
               </p>
               <p>"{comment.commentBody}"</p>
               <br></br>
             </div>
-          ))}
+          ))} */}
 
         <Grid columns={2} textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <Form
-                //onSubmit={handleFormSubmit}
-                onSubmit={() => {
-                  setUserComments([
-                    ...userComments,
-                    {
-                      commentBody: `${userComments.length} comment`,
-                      createdAt: "Aug 28th, 2020 at 09:05 pm",
-                      firstName: 'DeAnna',
-                      id: userComments.length,
-                    }
-                  ])
-                }}
+                onSubmit={handleFormSubmit}
+                // onSubmit={() => {
+                //   setUserComments([
+                //     ...userComments,
+                //     {
+                //       commentBody: `${userComments.commentBody}`,
+                //       createdAt: `${userComments.createdAt}`,
+                //       firstName: `${userComments.firstName}`,
+                //       id: `${userComments._id}`,
+                //     }
+                //   ])
+                // }}
               >
                 <Form.TextArea
                   onChange={(event) => setBody(event.target.value)}

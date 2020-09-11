@@ -8,7 +8,7 @@ export default function CommentList({ comments }) {
         {comments &&
           comments.map((comment) => (
             <div key={comment._id}>
-              <p>
+              <p style={{fontWeight:"bold", color:"teal"}}>
                 {comment.firstName} commented on {comment.createdAt}
               </p>
               <p>"{comment.commentBody}"</p>
