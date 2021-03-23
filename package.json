@@ -1,10 +1,6 @@
 {
   "name": "honey-do-list",
   "version": "0.1.0",
-  "engines": {
-    "npm": "6.x",
-    "node": "14.x"
-  },
   "private": true,
   "description": "House chores get done with this app!",
   "main": "server/server.js",
@@ -35,6 +31,7 @@
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
+    "build": "react-scripts build",
     "seed": "cd server && npm run seed",
     "heroku-postbuild": "cd client && npm run build"
   },
